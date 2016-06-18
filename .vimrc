@@ -23,8 +23,10 @@ set lines=60 columns=150
 set guifont=Consolas:h12:cANSI
 set guioptions-=T
 set guioptions-=m
-set laststatus=2
+set guioptions-=r
+set guioptions-=L
 
+set laststatus=2
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
