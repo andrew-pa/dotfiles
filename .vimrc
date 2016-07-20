@@ -14,6 +14,10 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-startify'
 
+Plugin 'rust-lang/rust.vim'
+Plugin 'cespare/vim-toml'
+Plugin 'racer-rust/vim-racer'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -25,6 +29,16 @@ set guioptions-=T
 set guioptions-=m
 set guioptions-=r
 set guioptions-=L
+
+set relativenumber
+imap jk <Esc> 
+
+"check to see if gvimfullscreen.dll extention is avaliable, and if so map
+"<F11> to toggle fullscreen
+:if filereadable(expand("$VIMRUNTIME/gvimfullscreen.dll"))
+:	map <expr> <F11> libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0) 
+:endif
+
 
 set laststatus=2
 set statusline+=%#warningmsg#
@@ -46,3 +60,5 @@ let g:ascii_art_header = [
             \ ]
 let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(), '"   ".v:val')
 
+set hidden
+let g:racer_experimental_completer = 1
