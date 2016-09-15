@@ -23,7 +23,7 @@ filetype plugin indent on
 
 syntax on
 colorscheme jellybeans
-set lines=60 columns=150
+set lines=60 columns=150 tabstop=4 shiftwidth=4 smarttab
 set guifont=Consolas:h12:cANSI
 set guioptions-=T
 set guioptions-=m
@@ -32,6 +32,9 @@ set guioptions-=L
 
 set relativenumber
 imap jk <Esc> 
+" map W -> w so that :w can be done while holding shift down the whole time
+com! W w
+
 
 "check to see if gvimfullscreen.dll extention is avaliable, and if so map
 "<F11> to toggle fullscreen
@@ -49,16 +52,34 @@ let g:airline#extensions#tabline#enabled = 1
 let g:syntastic_cpp_compiler_options = "-std=c++14"
 
 let g:startify_enable_unsafe = 0
-let g:ascii_art_header = [
-            \ '                                 ________  __ __        ',
-            \ '            __                  /\_____  \/\ \\ \       ',
-            \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
-            \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
-            \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
-            \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
-            \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
-            \ ]
+if v:version == 704
+	let g:ascii_art_header = [
+		\ '                                 ________  __ __        ',
+		\ '            __                  /\_____  \/\ \\ \       ',
+		\ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
+		\ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
+		\ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+		\ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
+		\ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
+		\ ]
+elseif v:version == 800
+	let g:ascii_art_header = [
+		\ '                               ________         ________',
+		\ '            __                |\  ____ \       |\  ____ \',
+		\ '    __  __ /\_\    ___ ___    \ \ \___\ \      \ \ \__|\ \',
+		\ '   /\ \/\ \\/\ \ /'' __` _`\    \ \ \___\ \      \ \ \  \\ \',
+		\ '   \ \ \ | \\ \ \/\ \/\ \/\ \   \ \ \__|\ \      \ \ \  \\ \',
+		\ '    \ \ \/ | \ \ \ \ \ \ \ \ \   \ \ \___\ \   __ \ \ \___\ \',
+		\ '     \ \___/  \ \_\ \_\ \_\ \_\   \ \_______\ /\_\ \ \_______\',
+		\ '      \/__/    \/_/\/_/\/_/\/_/    \/_______/ \/_/  \/_______/',
+		\ ]
+endif
+
 let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(), '"   ".v:val')
 
 set hidden
 let g:racer_experimental_completer = 1
+
+"hacky way to ensure that .md files are highlighted 
+"as markdown instead of modula
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
