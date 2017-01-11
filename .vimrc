@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -13,10 +14,13 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-startify'
+Plugin 'mbbill/undotree'
 
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'racer-rust/vim-racer'
+
+Plugin 'sirtaj/vim-openscad'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,16 +28,20 @@ filetype plugin indent on
 syntax on
 colorscheme jellybeans
 set lines=60 columns=150 tabstop=4 shiftwidth=4 smarttab
+set rop=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
 set guifont=Consolas:h12:cANSI
 set guioptions-=T
 set guioptions-=m
 set guioptions-=r
 set guioptions-=L
+set fillchars=vert:\‖
 
 set relativenumber
+set hidden
 imap jk <Esc> 
 " map W -> w so that :w can be done while holding shift down the whole time
 com! W w
+au FocusLost * silent! :wa
 
 
 "check to see if gvimfullscreen.dll extention is avaliable, and if so map
@@ -48,6 +56,29 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:airline#extensions#tabline#enabled = 1
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▒'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '▒'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+
 
 let g:syntastic_cpp_compiler_options = "-std=c++14"
 
@@ -77,7 +108,6 @@ endif
 
 let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(), '"   ".v:val')
 
-set hidden
 let g:racer_experimental_completer = 1
 
 "hacky way to ensure that .md files are highlighted 
