@@ -11,6 +11,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-startify'
@@ -26,7 +27,7 @@ call vundle#end()
 filetype plugin indent on
 
 syntax on
-colorscheme jellybeans
+colorscheme base16-atelierforest "colorscheme jellybeans
 set lines=60 columns=150 tabstop=4 shiftwidth=4 smarttab
 set rop=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
 set guifont=Consolas:h12:cANSI
@@ -34,10 +35,11 @@ set guioptions-=T
 set guioptions-=m
 set guioptions-=r
 set guioptions-=L
-set fillchars=vert:\‖
+set fillchars=stl:\ ,stlnc:\ ,vert:\‖
 
 set relativenumber
 set hidden
+set noshowmode
 imap jk <Esc> 
 " map W -> w so that :w can be done while holding shift down the whole time
 com! W w
