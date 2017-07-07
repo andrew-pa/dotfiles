@@ -13,6 +13,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-startify'
 Plugin 'mbbill/undotree'
@@ -22,6 +23,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'racer-rust/vim-racer'
 
 Plugin 'sirtaj/vim-openscad'
+Plugin 'tikhomirov/vim-glsl'
 
 call vundle#end()
 filetype plugin indent on
@@ -40,7 +42,7 @@ set fillchars=stl:\ ,stlnc:\ ,vert:\‖
 set relativenumber
 set hidden
 set noshowmode
-imap jk <Esc> 
+imap jk <Esc>
 " map W -> w so that :w can be done while holding shift down the whole time
 com! W w
 au FocusLost * silent! :wa
@@ -49,7 +51,7 @@ au FocusLost * silent! :wa
 "check to see if gvimfullscreen.dll extention is avaliable, and if so map
 "<F11> to toggle fullscreen
 :if filereadable(expand("$VIMRUNTIME/gvimfullscreen.dll"))
-:	map <expr> <F11> libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0) 
+:	map <expr> <F11> libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 :endif
 
 
@@ -63,20 +65,13 @@ if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 " unicode symbols
-let g:airline_left_sep = '»'
 let g:airline_left_sep = '▒'
-let g:airline_right_sep = '«'
 let g:airline_right_sep = '▒'
 let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.maxlinenr = '☰'
-let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
@@ -112,6 +107,6 @@ let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(
 
 let g:racer_experimental_completer = 1
 
-"hacky way to ensure that .md files are highlighted 
+"hacky way to ensure that .md files are highlighted
 "as markdown instead of modula
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
