@@ -47,6 +47,9 @@ imap jk <Esc>
 com! W w
 au FocusLost * silent! :wa
 
+" map Ctrl-V to paste
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
 
 "check to see if gvimfullscreen.dll extention is avaliable, and if so map
 "<F11> to toggle fullscreen
@@ -79,7 +82,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 let g:syntastic_cpp_compiler_options = "-std=c++14"
 
-let g:startify_enable_unsafe = 0
+let g:startify_enable_unsafe = -3
 if v:version == 704
 	let g:ascii_art_header = [
 		\ '                                 ________  __ __        ',
@@ -105,6 +108,7 @@ endif
 
 let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(), '"   ".v:val')
 
+let g:racer_cmd = "C:\\Users\\andre\\.cargo\\bin\\racer.exe"
 let g:racer_experimental_completer = 1
 
 "hacky way to ensure that .md files are highlighted
