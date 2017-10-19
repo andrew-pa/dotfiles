@@ -59,8 +59,8 @@ imap <C-v> <C-r><C-o>+
 :endif
 
 " ALE
-let g:ale_sign_warning = '▲'
-let g:ale_sign_error = '🗙'
+let g:ale_sign_warning = '⯁'
+let g:ale_sign_error = '🞬'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
 
@@ -72,7 +72,7 @@ set statusline+=%*
 set showtabline=2  " always show tabline
 
 " Common colors
-let s:fg     = '#bbb2bf'
+let s:fg     = '#bfbdbb'
 let s:blue   = '#61afef'
 let s:green  = '#98c379'
 let s:purple = '#c668ed'
@@ -84,9 +84,9 @@ let s:yellow = '#ef5f31'
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 
 " Dark variant
-let s:bg     = '#282c24'
+let s:bg     = '#282420'
 let s:gray1  = '#4e5350'
-let s:gray2  = '#2c322d'
+let s:gray2  = '#322c2d'
 let s:gray3  = '#474436'
 
 let s:p.normal.left     = [ [ s:bg, s:green, 'bold' ], [ s:fg, s:gray3 ] ]
@@ -105,7 +105,7 @@ let s:p.normal.warning = [ [ s:brightyellow, s:bg ] ]
 let s:p.insert.right   = [ [ s:bg, s:blue, 'bold' ], [ s:bg, s:brightyellow, 'bold' ] ]
 let s:p.replace.right  = [ [ s:bg, s:red1, 'bold' ], [ s:bg, s:brightyellow, 'bold' ] ]
 let s:p.visual.right   = [ [ s:bg, s:yellow, 'bold' ], [ s:bg, s:brightyellow, 'bold' ] ]
-let s:p.tabline.left   = [ [ s:bg, s:gray3, 'italic' ] ]
+let s:p.tabline.left   = [ [ s:bg, s:purple, 'italic' ] ]
 let s:p.tabline.tabsel = [ [ s:bg, s:brightyellow, 'bold' ] ]
 let s:p.tabline.middle = [ [ s:gray3, s:gray2 ] ]
 let s:p.tabline.right  = [ [ s:bg, s:purple ] ]
@@ -116,11 +116,11 @@ let g:lightline#colorscheme#custom#palette = lightline#colorscheme#fill(s:p)
 let g:lightline = {
 	\ 'colorscheme': 'custom',
 	\ 'active': {
-	\   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'modified']],
-	\   'right': [['percent', 'lineinfo'], ['readonly', 'fileformat', 'fileencoding', 'filetype'], ['linter_warnings', 'linter_errors', 'linter_ok'] ]
+	\   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonlyormodified']],
+	\   'right': [['percent', 'lineinfo'], ['fileformat', 'fileencoding', 'filetype'], ['linter_warnings', 'linter_errors', 'linter_ok'] ]
 	\ },
 	\ 'inactive': {
-	\   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'modified']],
+	\   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonlyormodified']],
 	\   'right': [['percent', 'lineinfo'], ['fileformat', 'fileencoding', 'filetype'], ]
 	\ },
 	\ 'tabline': {
@@ -143,6 +143,7 @@ let g:lightline = {
 	\ 'bufferbefore': 'lightline#buffer#bufferbefore',
 	\ 'bufferafter': 'lightline#buffer#bufferafter',
 	\ 'bufferinfo': 'lightline#buffer#bufferinfo',
+	\ 'readonlyormodified': 'UnicodeReadonlyOrModified',
 	\ 'gitbranch': 'fugitive#head',
 	\ 'date': 'DateForTabline'
 	\ },
@@ -152,23 +153,27 @@ function! DateForTabline() abort
 	return strftime("%a, %b %e, %Y")
 endfunction
 
+function! UnicodeReadonlyOrModified()
+	return &readonly ? '⦸' : (&modified ? '+' : '')
+endfunction
+
 function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+  return l:counts.total == 0 ? '' : printf('%d %s', all_non_errors, g:ale_sign_warning)
 endfunction
 function! LightlineLinterErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d 🗙', all_errors)
+  return l:counts.total == 0 ? '' : printf('%d %s', all_errors, g:ale_sign_error)
 endfunction
 function! LightlineLinterOK() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '✓ ' : ''
+  return l:counts.total == 0 ? '✓' : ''
 endfunction
 
 " Update and show lightline but only if it's visible (e.g., not in Goyo)
@@ -187,13 +192,14 @@ nnoremap <Right> :bnext<CR>
 " replace these symbols with ascii characters if your environment does not support unicode
 let g:lightline_buffer_logo = 'Vim '
 let g:lightline_buffer_readonly_icon = '⦸'
-let g:lightline_buffer_modified_icon = '✭'
+let g:lightline_buffer_modified_icon = '+'
 let g:lightline_buffer_git_icon = ''
 let g:lightline_buffer_ellipsis_icon = '…'
-let g:lightline_buffer_expand_left_icon = '◀ '
-let g:lightline_buffer_expand_right_icon = ' ▶'
+let g:lightline_buffer_expand_left_icon = '◀'
+let g:lightline_buffer_expand_right_icon = '▶'
 let g:lightline_buffer_active_buffer_left_icon = ''
 let g:lightline_buffer_active_buffer_right_icon = ''
+let g:lightline_buffer_separator_icon = ' '
 
 
 " lightline-buffer function settings
@@ -202,11 +208,11 @@ let g:lightline_buffer_rotate = 0
 let g:lightline_buffer_fname_mod = ':t'
 let g:lightline_buffer_excludes = ['vimfiler']
 
-let g:lightline_buffer_maxflen = 30
-let g:lightline_buffer_maxfextlen = 3
-let g:lightline_buffer_minflen = 16
+let g:lightline_buffer_maxflen = 32
+let g:lightline_buffer_maxfextlen = 4
+let g:lightline_buffer_minflen = 8
 let g:lightline_buffer_minfextlen = 3
-let g:lightline_buffer_reservelen = 20
+let g:lightline_buffer_reservelen = 16
 
 let g:startify_enable_unsafe = -3
 if v:version == 704
