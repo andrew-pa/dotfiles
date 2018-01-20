@@ -11,11 +11,14 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-speeddating'
 Plugin 'mhinz/vim-startify'
 Plugin 'mbbill/undotree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'taohex/lightline-buffer'
 Plugin 'w0rp/ale'
+Plugin 'maralla/completor.vim'
 
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
@@ -23,6 +26,8 @@ Plugin 'racer-rust/vim-racer'
 
 Plugin 'sirtaj/vim-openscad'
 Plugin 'tikhomirov/vim-glsl'
+
+Plugin 'jceb/vim-orgmode'
 
 call vundle#end()
 filetype plugin indent on
@@ -39,11 +44,11 @@ set guioptions-=r
 set guioptions-=L
 set guioptions-=e
 set fillchars=stl:\ ,stlnc:\ ,vert:\‖
-
 set relativenumber
 set hidden
 set noshowmode
-imap jk <Esc>
+set completeopt=longest,menuone
+
 " map W -> w so that :w can be done while holding shift down the whole time
 com! W w
 au FocusLost * silent! :wa
@@ -116,11 +121,11 @@ let g:lightline#colorscheme#custom#palette = lightline#colorscheme#fill(s:p)
 let g:lightline = {
 	\ 'colorscheme': 'custom',
 	\ 'active': {
-	\   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonlyormodified']],
+	\   'left': [['mode', 'paste'], ['gitbranch', 'relativepath', 'readonlyormodified']],
 	\   'right': [['percent', 'lineinfo'], ['fileformat', 'fileencoding', 'filetype'], ['linter_warnings', 'linter_errors', 'linter_ok'] ]
 	\ },
 	\ 'inactive': {
-	\   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonlyormodified']],
+	\   'left': [['mode', 'paste'], ['gitbranch', 'relativepath', 'readonlyormodified']],
 	\   'right': [['percent', 'lineinfo'], ['fileformat', 'fileencoding', 'filetype'], ]
 	\ },
 	\ 'tabline': {
@@ -240,7 +245,7 @@ endif
 
 let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(), '"   ".v:val')
 
-let g:racer_cmd = "C:\\Users\\andre\\.cargo\\bin\\racer.exe"
+let g:completor_racer_binary = "C:\\Users\\andre\\.cargo\\bin\\racer.exe"
 let g:racer_experimental_completer = 1
 
 "hacky way to ensure that .md files are highlighted
