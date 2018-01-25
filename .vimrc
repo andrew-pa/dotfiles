@@ -49,6 +49,7 @@ set relativenumber
 set hidden
 set noshowmode
 set completeopt=longest,menuone
+let mapleader="\<Space>"
 
 " map W -> w so that :w can be done while holding shift down the whole time
 com! W w
@@ -192,9 +193,16 @@ function! s:MaybeUpdateLightline()
   end
 endfunction
 
-" remap arrow keys
+" remap some things for nice navigation
 nnoremap <Left> :bprev<CR>
 nnoremap <Right> :bnext<CR>
+nnoremap <Leader><Space> <C-w>w
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+tnoremap <Esc> <C-w>N
+
 
 " lightline-buffer ui settings
 " replace these symbols with ascii characters if your environment does not support unicode
@@ -248,7 +256,7 @@ endif
 
 let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(), '"   ".v:val')
 
-let g:completor_racer_binary = "C:\\Users\\andre\\.cargo\\bin\\racer.exe"
+let g:completor_racer_binary = expand("~/.cargo/bin/racer")
 let g:racer_experimental_completer = 1
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
