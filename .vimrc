@@ -36,8 +36,7 @@ syntax on
 set background=dark
 colorscheme base16-atelierforest "colorscheme jellybeans
 set lines=60 columns=150 tabstop=4 shiftwidth=4 smarttab
-set rop= 
-"type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
+set rop=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
 set guifont=Consolas:h12
 set guioptions-=T
 set guioptions-=m
@@ -158,7 +157,8 @@ let g:lightline = {
 let g:clock_faces = '🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦🕛🕧'
 
 function! DateForTabline() abort
-	return strpart(g:clock_faces, 4*(str2nr(strftime("%I")-1)*2+(str2nr(strftime("%M")) > 30)), 4) . strftime("%a, %b %e, %Y")
+	let m = str2nr(strftime("%M"))
+	return strpart(g:clock_faces, 4*((str2nr(strftime("%I")-1)*2+(m > 25)+(m > 50)) % 23), 4) . ' ' . strftime("%a, %b %e, %Y")
 endfunction
 
 function! UnicodeReadonlyOrModified()
