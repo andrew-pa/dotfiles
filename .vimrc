@@ -36,15 +36,19 @@ syntax on
 set background=dark
 colorscheme base16-atelierforest "colorscheme jellybeans
 set lines=60 columns=150 tabstop=4 shiftwidth=4 smarttab
-set rop=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
-set guifont=Consolas:h12
+set rop=type:directx,gamma:1.0,contrast:0.2,level:4,geom:1,renmode:4,taamode:1
+try
+	set guifont=Fira_Code:h12
+catch /^Vim\%((\a\+)\)\=:E596/
+	set guifont=Consolas:h12
+endtry
 set guioptions-=T
 set guioptions-=m
 set guioptions-=r
 set guioptions-=L
 set guioptions-=e
 set fillchars=stl:\ ,stlnc:\ ,vert:\‖
-set relativenumber
+set number relativenumber
 set hidden
 set noshowmode
 set completeopt=longest,menuone
@@ -53,6 +57,14 @@ let mapleader="\<Space>"
 " map W -> w so that :w can be done while holding shift down the whole time
 com! W w
 au FocusLost * silent! :wa
+
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 
 " map Ctrl-V to paste
 vmap <C-v> c<ESC>"+p
@@ -64,11 +76,17 @@ imap <C-v> <C-r><C-o>+
 :	map <expr> <F11> libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 :endif
 
+:if filereadable("C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe")
+:	set shell=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+:endif
+
 " ALE
-let g:ale_sign_warning = '⯁'
+let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '🞬'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
+nnoremap <Leader>u :ALENextWrap<CR>
+nnoremap <Leader>i :ALEPreviousWrap<CR>
 
 set laststatus=2
 set statusline+=%#warningmsg#
