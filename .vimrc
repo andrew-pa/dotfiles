@@ -13,7 +13,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
-Plugin 'mhinz/vim-startify'
+"Plugin 'mhinz/vim-startify'
 Plugin 'mbbill/undotree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'taohex/lightline-buffer'
@@ -28,15 +28,16 @@ Plugin 'sirtaj/vim-openscad'
 Plugin 'tikhomirov/vim-glsl'
 
 Plugin 'jceb/vim-orgmode'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 filetype plugin indent on
 
 syntax on
 set background=dark
-colorscheme base16-atelierforest "colorscheme jellybeans
+colorscheme colorsbox-stbright
 set lines=60 columns=150 tabstop=4 shiftwidth=4 smarttab
-set rop=type:directx,gamma:1.0,contrast:0.2,level:4,geom:1,renmode:4,taamode:1
+set rop=type:directx,renmode:5
 try
 	set guifont=Fira_Code:h12
 catch /^Vim\%((\a\+)\)\=:E596/
@@ -77,7 +78,7 @@ imap <C-v> <C-r><C-o>+
 :endif
 
 :if filereadable("C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe")
-:	set shell=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+:	set shell=powershell.exe
 :endif
 
 " ALE
@@ -89,16 +90,15 @@ nnoremap <Leader>u :ALENextWrap<CR>
 nnoremap <Leader>i :ALEPreviousWrap<CR>
 
 set laststatus=2
-set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%*
 
 set showtabline=2  " always show tabline
 
 " Common colors
 let s:fg     = '#bfbdbb'
-let s:blue   = '#61afef'
-let s:green  = '#98c379'
+let s:blue   = '#619fef'
+let s:green  = '#88d368'
 let s:purple = '#c668ed'
 let s:red1   = '#e06c75'
 let s:red2   = '#be5046'
@@ -108,31 +108,32 @@ let s:yellow = '#ef5f31'
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 
 " Dark variant
-let s:bg     = '#282420'
-let s:gray1  = '#4e5350'
-let s:gray2  = '#322c2d'
+let s:bg     = '#202428'
+let s:bg1    = '#303438'
+let s:gray1  = '#322c2d'
+let s:gray2  = '#4e5350'
 let s:gray3  = '#474436'
 
-let s:p.normal.left     = [ [ s:bg, s:green, 'bold' ], [ s:fg, s:gray3 ] ]
-let s:p.normal.middle   = [ [ s:fg, s:gray2 ] ]
-let s:p.inactive.left   = [ [ s:gray1,  s:bg ], [ s:gray3, s:bg ] ]
-let s:p.inactive.middle = [ [ s:gray1, s:gray2 ] ]
-let s:p.inactive.right  = [ [ s:gray1, s:bg ], [ s:gray3, s:bg ] ]
-let s:p.insert.left     = [ [ s:bg, s:blue, 'bold' ], [ s:fg, s:gray3 ] ]
-let s:p.replace.left    = [ [ s:bg, s:red1, 'bold' ], [ s:fg, s:gray3 ] ]
-let s:p.visual.left     = [ [ s:bg, s:yellow, 'bold' ], [ s:fg, s:gray3 ] ]
+let s:p.normal.left     = [ [ s:bg, s:green, 'bold' ], [ s:fg, s:bg ] ]
+let s:p.normal.middle   = [ [ s:fg, s:bg ] ]
+let s:p.inactive.left   = [ [ s:gray2,  s:bg ], [ s:gray2, s:bg ] ]
+let s:p.inactive.middle = [ [ s:gray2, s:bg ] ]
+let s:p.inactive.right  = [ [ s:gray2, s:bg ], [ s:gray2, s:bg ] ]
+let s:p.insert.left     = [ [ s:bg, s:blue, 'bold' ], [ s:fg, s:bg ] ]
+let s:p.replace.left    = [ [ s:bg, s:red2, 'bold' ], [ s:fg, s:bg ] ]
+let s:p.visual.left     = [ [ s:bg, s:yellow, 'bold' ], [ s:fg, s:bg ] ]
 
 " Common
-let s:p.normal.right   = [ [ s:bg, s:green, 'bold' ], [ s:bg, s:brightyellow, 'bold' ] ]
+let s:p.normal.right   = [ [ s:bg, s:green, 'bold' ], [ s:fg, s:bg1] ]
+let s:p.insert.right   = [ [ s:bg, s:blue, 'bold' ], [ s:fg, s:bg1] ]
+let s:p.replace.right  = [ [ s:bg, s:red1, 'bold' ], [ s:fg, s:bg1] ]
+let s:p.visual.right   = [ [ s:bg, s:yellow, 'bold' ], [ s:fg, s:bg1] ]
+let s:p.tabline.left   = [ [ s:fg, s:bg ] ]
+let s:p.tabline.tabsel = [ [ s:fg, s:bg1, 'bold' ] ]
+let s:p.tabline.middle = [ [ s:gray2, s:bg ] ]
+let s:p.tabline.right  = [ [ s:fg, s:bg ] ]
 let s:p.normal.error   = [ [ s:red2,   s:bg ] ]
 let s:p.normal.warning = [ [ s:brightyellow, s:bg ] ]
-let s:p.insert.right   = [ [ s:bg, s:blue, 'bold' ], [ s:bg, s:brightyellow, 'bold' ] ]
-let s:p.replace.right  = [ [ s:bg, s:red1, 'bold' ], [ s:bg, s:brightyellow, 'bold' ] ]
-let s:p.visual.right   = [ [ s:bg, s:yellow, 'bold' ], [ s:bg, s:brightyellow, 'bold' ] ]
-let s:p.tabline.left   = [ [ s:bg, s:purple, 'italic' ] ]
-let s:p.tabline.tabsel = [ [ s:bg, s:brightyellow, 'bold' ] ]
-let s:p.tabline.middle = [ [ s:gray3, s:gray2 ] ]
-let s:p.tabline.right  = [ [ s:bg, s:purple ] ]
 
 let g:lightline#colorscheme#custom#palette = lightline#colorscheme#fill(s:p)
 
@@ -224,7 +225,7 @@ tnoremap <Esc> <C-w>N
 
 " lightline-buffer ui settings
 " replace these symbols with ascii characters if your environment does not support unicode
-let g:lightline_buffer_logo = 'Vim '
+let g:lightline_buffer_logo = ''
 let g:lightline_buffer_readonly_icon = '⦸'
 let g:lightline_buffer_modified_icon = '+'
 let g:lightline_buffer_git_icon = ''
@@ -272,7 +273,7 @@ elseif v:version == 800
 		\ ]
 endif
 
-let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(), '"   ".v:val')
+"let g:startify_custom_header = map(g:ascii_art_header + startify#fortune#cowsay(), '"   ".v:val')
 
 let g:completor_racer_binary = expand("~/.cargo/bin/racer")
 let g:racer_experimental_completer = 1
