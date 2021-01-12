@@ -1,0 +1,7 @@
+[user]
+	email = andrew.pa@outlook.com
+	name = andrew-pa
+[receive]
+	denyCurrentBranch = warn
+[core]
+	excludesFile = ~/.gitignore

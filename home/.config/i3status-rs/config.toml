@@ -1,0 +1,48 @@
+icons = "awesome"
+
+[theme]
+name = "plain"
+[theme.overrides]
+idle_bg = "#323232aa"
+good_bg = "#323232aa"
+alternating_tint_bg = "#00000000"
+alternating_tint_fg = "#000000"
+separator_bg = "#323232aa"
+separator_fg = "#828282"
+separator = "/"
+idle_fg = "#eddedd"
+
+[[block]]
+block = "custom"
+command='''/home/andrew/.local/bin/sp metadata | awk -F "|" '/title/{print $2} /artist/{printf "♫ %s | ", $2}' '''
+on_click='''/home/andrew/.local/bin/sp play'''
+
+[[block]]
+block = "bluetooth"
+mac = "38:18:4C:3E:17:6C"
+label = " WH-1000MX"
+
+[[block]]
+block = "net"
+device = "enp6s0"
+ip = true
+interval = 5
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mug}GB ({Mup}%)"
+
+[[block]]
+block = "cpu"
+interval = 3
+format = "{utilization}% {frequency}GHz"
+
+[[block]]
+block = "uptime"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a, %b %d %r"
+
