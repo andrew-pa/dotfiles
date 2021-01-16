@@ -1,4 +1,3 @@
-icons = "awesome"
 
 [theme]
 name = "plain"
@@ -12,6 +11,12 @@ separator_fg = "#828282"
 separator = "/"
 idle_fg = "#eddedd"
 
+[icons]
+name = "awesome"
+[icons.overrides]
+pomodoro = " P "
+
+
 [[block]]
 block = "custom"
 command='''/home/andrew/.local/bin/sp metadata | awk -F "|" '/title/{print $2} /artist/{printf "♫ %s | ", $2}' '''
@@ -21,6 +26,13 @@ on_click='''/home/andrew/.local/bin/sp play'''
 block = "bluetooth"
 mac = "38:18:4C:3E:17:6C"
 label = " WH-1000MX"
+
+[[block]]
+block = "pomodoro"
+length = 15
+break_length = 7
+message = "Time for break!"
+break_message = "Time for work!"
 
 [[block]]
 block = "net"
@@ -43,6 +55,5 @@ block = "uptime"
 
 [[block]]
 block = "time"
-interval = 60
+interval = 5
 format = "%a, %b %d %r"
-

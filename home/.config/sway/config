@@ -26,6 +26,8 @@ set $term kitty
 set $run_menu rofi -show run -run-command "swaymsg exec {cmd}" -theme ~/.config/theme.rasi
 set $win_menu rofi -show window -run-command "swaymsg exec {cmd}" -theme ~/.config/theme.rasi
 
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -acenter -abottom -M64 --background-color=#44000000 --bar-color=#ddee8811 --border-color=#ee323232 -W512 -H40
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -98,9 +100,14 @@ input "type:keyboard" {
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    bindsym $mod+F2 exec amixer sset Master 2%-
-    bindsym $mod+F3 exec amixer sset Master 2%+
-    bindsym $mod+F1 exec amixer sset Master 0%
+    # bindsym $mod+F2 exec amixer sset Master 2%-
+    # bindsym $mod+F3 exec amixer sset Master 2%+
+    # bindsym $mod+F1 exec amixer sset Master 0%
+
+    bindsym $mod+F3 exec amixer sset Master 2%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
+    bindsym $mod+F2 exec amixer sset Master 2%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
+    bindsym $mod+F1 exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $SWAYSOCK.wob
+
     bindsym $mod+Shift+F1 exec pavucontrol
     bindsym $mod+F4 exec /home/andrew/.local/bin/sp next
     bindsym $mod+F5 exec /home/andrew/.local/bin/sp play
