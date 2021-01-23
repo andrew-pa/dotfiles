@@ -32,7 +32,7 @@ syntax on
 set number relativenumber
 set signcolumn=number
 set laststatus=2
-set hidden noshowmode
+set hidden noshowmode nohlsearch
 set completeopt=longest,menuone
 au FocusLost * silent! :wa
 set softtabstop=4 shiftwidth=4 

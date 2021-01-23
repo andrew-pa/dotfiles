@@ -23,8 +23,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $run_menu rofi -show run -run-command "swaymsg exec {cmd}" -theme ~/.config/theme.rasi
-set $win_menu rofi -show window -run-command "swaymsg exec {cmd}" -theme ~/.config/theme.rasi
+set $run_menu wofi --show drun --run-command -G "swaymsg exec {cmd}" --style=/home/andrew/.config/wofi/style.css
+set $win_menu wofi --show run --run-command -G "swaymsg exec {cmd}" --style=/home/andrew/.config/wofi/style.css
 
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -acenter -abottom -M64 --background-color=#44000000 --bar-color=#ddee8811 --border-color=#ee323232 -W512 -H40
 
@@ -272,7 +272,7 @@ bindsym $mod+r mode "resize"
 title_align center
 
 for_window [class="MATLAB*" title="Figure*"] floating enable
-for_window [app_id="zoom"] floating enable
+for_window [class="zoom"] floating enable
 
 bindsym $mod+Alt+Shift+a mark --toggle --add "A"
 bindsym $mod+Alt+Shift+s mark --toggle --add "S"

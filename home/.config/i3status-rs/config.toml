@@ -33,6 +33,7 @@ length = 15
 break_length = 7
 message = "Time for break!"
 break_message = "Time for work!"
+use_nag = true
 
 [[block]]
 block = "net"

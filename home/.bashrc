@@ -8,13 +8,15 @@ fi
 export MOZ_ENABLE_WAYLAND=1
 export RUST_BACKTRACE=1
 
+export DENO_INSTALL="$HOME/.deno"
+
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$DENO_INSTALL/bin:$PATH"
 export PS1="\n[\[\e[32m\]\u\[\e[m\]@\[\e[31m\]\h\[\e[m\]] \[\e[35m\\w\[\e[m\n\\$ "
 export HISTSIZE=40000
 export HISTFILESIZE=40000
@@ -26,6 +28,7 @@ shopt -s histappend
 
 # User specific aliases and functions
 alias ls='ls --color=auto -a -l -h'
+alias wvim='kitty --detach vim'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

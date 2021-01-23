@@ -1,0 +1,22 @@
+* {
+    font-size: x-large;
+    font-family: Fira Code;
+}
+
+#window {
+    background-color: transparent;
+}
+
+#scroll {
+    padding: 0.5em;
+    background-color: #323232;
+}
+
+#input {
+    padding: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+#entry:selected {
+    background-color: #dd7711;
+}
