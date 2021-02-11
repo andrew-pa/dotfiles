@@ -76,6 +76,8 @@ input "type:keyboard" {
 	xkb_options caps:escape
 }
 
+seat seat0 xcursor_theme oreo_spark_orange_cursors 48
+
 ### Key bindings
 #
 # Basics:
@@ -272,7 +274,7 @@ bindsym $mod+r mode "resize"
 title_align center
 
 for_window [class="MATLAB*" title="Figure*"] floating enable
-for_window [class="zoom"] floating enable
+for_window [app_id="zoom"] floating enable
 
 bindsym $mod+Alt+Shift+a mark --toggle --add "A"
 bindsym $mod+Alt+Shift+s mark --toggle --add "S"
@@ -291,6 +293,7 @@ bindsym $mod+Alt+a [con_mark="A"] focus
 bindsym $mod+Alt+s [con_mark="S"] focus
 bindsym $mod+Alt+d [con_mark="D"] focus
 bindsym $mod+Alt+f [con_mark="F"] focus
+bindsym $mod+Tab exec swaymsg "mark --add T" && swaymsg "[con_mark=T] focus"
 
 #
 # Status Bar:
