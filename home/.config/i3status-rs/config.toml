@@ -28,12 +28,16 @@ mac = "38:18:4C:3E:17:6C"
 label = " WH-1000MX"
 
 [[block]]
-block = "pomodoro"
-length = 15
-break_length = 7
-message = "Time for break!"
-break_message = "Time for work!"
-use_nag = true
+block = "custom"
+command=''' echo "do today's best" '''
+
+#[[block]]
+#block = "pomodoro"
+#length = 15
+#break_length = 7
+#message = "Time for break!"
+#break_message = "Time for work!"
+#use_nag = true
 
 [[block]]
 block = "net"

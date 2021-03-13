@@ -246,6 +246,13 @@ exec thunderbird
 for_window [class="Thunderbird"] move scratchpad
 bindsym $mod+Ctrl+m exec swaymsg [class="Thunderbird"] scratchpad show
 
+exec Discord
+exec telegram-desktop
+exec spotify
+for_window [app_id="telegramdesktop"] move window to workspace 3
+for_window [class="Spotify"] move window to workspace 3
+for_window [class="discord"] move window to workspace 3
+
 #
 # Resizing containers:
 #
@@ -275,25 +282,42 @@ title_align center
 
 for_window [class="MATLAB*" title="Figure*"] floating enable
 for_window [app_id="zoom"] floating enable
+for_window [title="erg"] floating enable
 
-bindsym $mod+Alt+Shift+a mark --toggle --add "A"
-bindsym $mod+Alt+Shift+s mark --toggle --add "S"
-bindsym $mod+Alt+Shift+d mark --toggle --add "D"
-bindsym $mod+Alt+Shift+f mark --toggle --add "F"
-bindsym $mod+Alt+Shift+z mark --toggle --add "Z"
-bindsym $mod+Alt+Shift+x mark --toggle --add "X"
-bindsym $mod+Alt+Shift+c mark --toggle --add "C"
-bindsym $mod+Alt+Shift+v mark --toggle --add "V"
+bindsym $mod+Alt+Shift+y mark --toggle --add "Y"
+bindsym $mod+Alt+Shift+u mark --toggle --add "U"
+bindsym $mod+Alt+Shift+i mark --toggle --add "I"
+bindsym $mod+Alt+Shift+o mark --toggle --add "O"
 
-bindsym $mod+Alt+z [con_mark="Z"] focus
-bindsym $mod+Alt+x [con_mark="X"] focus
-bindsym $mod+Alt+c [con_mark="C"] focus
-bindsym $mod+Alt+v [con_mark="V"] focus
-bindsym $mod+Alt+a [con_mark="A"] focus
+bindsym $mod+Alt+Shift+h mark --toggle --add "H"
+bindsym $mod+Alt+Shift+j mark --toggle --add "J"
+bindsym $mod+Alt+Shift+k mark --toggle --add "K"
+bindsym $mod+Alt+Shift+l mark --toggle --add "L"
+
+bindsym $mod+Alt+h [con_mark="H"] focus
+bindsym $mod+Alt+j [con_mark="J"] focus
+bindsym $mod+Alt+k [con_mark="K"] focus
+bindsym $mod+Alt+l [con_mark="L"] focus
+
+bindsym $mod+Alt+y [con_mark="Y"] focus
+bindsym $mod+Alt+u [con_mark="U"] focus
+bindsym $mod+Alt+i [con_mark="I"] focus
+bindsym $mod+Alt+o [con_mark="O"] focus
+
+for_window [app_id="telegramdesktop"] mark --add "T"
+for_window [class="Spotify"] mark --add "S"
+for_window [class="discord"] mark --add "D"
+
+bindsym $mod+Alt+a [con_mark="T"] focus
+bindsym $mod+Alt+t [con_mark="T"] focus
 bindsym $mod+Alt+s [con_mark="S"] focus
 bindsym $mod+Alt+d [con_mark="D"] focus
-bindsym $mod+Alt+f [con_mark="F"] focus
-bindsym $mod+Tab exec swaymsg "mark --add T" && swaymsg "[con_mark=T] focus"
+
+bindsym $mod+Alt+Shift+a mark --toggle --add "T"
+bindsym $mod+Alt+Shift+s mark --toggle --add "S"
+bindsym $mod+Alt+Shift+d mark --toggle --add "D"
+
+#bindsym $mod+Tab exec swaymsg "mark --add T" && swaymsg "[con_mark=T] focus"
 
 #
 # Status Bar:
