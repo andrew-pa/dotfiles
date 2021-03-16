@@ -91,6 +91,8 @@ seat seat0 xcursor_theme oreo_spark_orange_cursors 48
     # Start your launcher
     bindsym $mod+f exec $run_menu
     bindsym $mod+g exec $win_menu
+    bindsym Alt+Tab exec ~/config/wofi_window_switcher.sh
+    bindsym $mod+Tab exec ~/config/wofi_window_switcher.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -261,10 +263,10 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $right resize shrink width 10px
+    bindsym $up resize grow height 10px
+    bindsym $down resize shrink height 10px
+    bindsym $left resize grow width 10px
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px

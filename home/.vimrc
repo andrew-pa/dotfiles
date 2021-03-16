@@ -32,7 +32,7 @@ syntax on
 set number relativenumber
 set signcolumn=number
 set laststatus=2
-set hidden noshowmode nohlsearch
+set hidden noshowmode nohlsearch title
 set completeopt=longest,menuone
 au FocusLost * silent! :wa
 set softtabstop=4 shiftwidth=4 
@@ -136,3 +136,4 @@ endif
 
 "statusline
 set statusline=%<%f\ %q%h%m%r\ \ %#StatusLineNC#%{coc#status()}%*%=%-26.(%y\ ln\ %l\ col\ %v%)\ %P
+set titlestring=vim\ [%F\ %P]
