@@ -17,7 +17,7 @@ then
 fi
 export PATH
 export PATH="$HOME/.cargo/bin:$DENO_INSTALL/bin:$PATH"
-export PS1="\n[\[\e[32m\]\u\[\e[m\]@\[\e[31m\]\h\[\e[m\]] \[\e[35m\\w\[\e[m\n\\$ "
+export PS1="\n\[\e]0;sh [\w]\a\][\[\e[32m\]\u\[\e[m\]@\[\e[31m\]\h\[\e[m\]] \[\e[35m\\w\[\e[m\n\\$ "
 export HISTSIZE=40000
 export HISTFILESIZE=40000
 export HISTCONTROL=erasedups
