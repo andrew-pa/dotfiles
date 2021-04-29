@@ -10,6 +10,8 @@ export RUST_BACKTRACE=1
 
 export DENO_INSTALL="$HOME/.deno"
 
+source "/opt/vulkan/1.2.170.0/setup-env.sh"
+
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
@@ -47,3 +49,7 @@ unset __conda_setup
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"

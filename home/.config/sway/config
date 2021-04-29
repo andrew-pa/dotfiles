@@ -15,7 +15,7 @@ set $up k
 set $right l
 
 set $main_color #ee8811
-set $main2_color #ddee0f
+set $main2_color #dd5500
 set $txt_color #001100
 
 # Your preferred terminal emulator
@@ -31,7 +31,7 @@ exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -acenter -abottom -M64 
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg #111111 solid_color
-output * bg ~/background.png tile
+output * bg ~/background3.png tile
 
 #
 # Example configuration:
@@ -242,10 +242,6 @@ exec kitty --class=term_scratchpad
 for_window [app_id="term_scratchpad"] move scratchpad
 bindsym $mod+grave exec swaymsg [app_id="term_scratchpad"] scratchpad show
 
-exec thunderbird
-for_window [class="Thunderbird"] move scratchpad
-bindsym $mod+Ctrl+m exec swaymsg [class="Thunderbird"] scratchpad show
-
 exec Discord
 exec telegram-desktop
 exec spotify
@@ -348,7 +344,7 @@ bar {
 }
 
 client.focused $main_color $main_color $txt_color $main2_color
-client.focused_inactive #323232 #443a33 #dddddd $main2_color
+client.focused_inactive #323232 #443a33 #dddddd #323232
 
 font Fira Code 12
 gaps inner 8

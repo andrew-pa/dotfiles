@@ -16,6 +16,8 @@ name = "awesome"
 [icons.overrides]
 pomodoro = " P "
 
+#[[block]]
+#block = "focused_window"
 
 [[block]]
 block = "custom"
@@ -26,6 +28,11 @@ on_click='''/home/andrew/.local/bin/sp play'''
 block = "bluetooth"
 mac = "38:18:4C:3E:17:6C"
 label = " WH-1000MX"
+
+[[block]]
+block = "bluetooth"
+mac = "A9:9A:BA:01:A4:6A"
+label = " CY-100"
 
 [[block]]
 block = "custom"
