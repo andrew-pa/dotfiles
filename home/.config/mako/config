@@ -1,0 +1,13 @@
+sort=-time
+background-color=#000000
+border-color=#ee8811
+border-radius=4
+border-size=4
+default-timeout=3600
+font=Fira Code 14
+anchor=bottom-right
+width=480
+output=DP-2
+layer=overlay
+margin=32
+
