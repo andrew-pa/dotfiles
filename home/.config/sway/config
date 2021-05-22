@@ -1,9 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -23,7 +17,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $run_menu wofi --show drun -i --run-command -G "swaymsg exec {cmd}" --style=/home/andrew/.config/wofi/style.css
+set $run_menu wofi --show drun -i -G "swaymsg exec {cmd}" --style=/home/andrew/.config/wofi/style.css
 
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -acenter -abottom -M64 --background-color=#44000000 --bar-color=#ddee8811 --border-color=#ee323232 -W512 -H40
 
@@ -42,6 +36,10 @@ output * bg ~/background3.png tile
 output HDMI-A-1 pos 0 0 res 1920x1200 transform 90
 output DP-2 pos 1200 0 res 3840x2160
 output DP-3 pos 5040 0 res 3840x2160
+
+workspace 1 output DP-2
+workspace 2 output DP-3
+workspace side-monitor output HDMI-A-1
 
 ### Idle configuration
 #
@@ -89,7 +87,7 @@ seat seat0 xcursor_theme oreo_spark_orange_cursors 48
 
     # Start your launcher
     bindsym $mod+f exec $run_menu
-    bindsym $mod+g exec ~/config/wofi_window_switcher.sh
+    bindsym $mod+d exec ~/config/wofi_window_switcher.sh
     bindsym $mod+Tab exec ~/config/wofi_window_switcher.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -101,10 +99,6 @@ seat seat0 xcursor_theme oreo_spark_orange_cursors 48
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-
-    # bindsym $mod+F2 exec amixer sset Master 2%-
-    # bindsym $mod+F3 exec amixer sset Master 2%+
-    # bindsym $mod+F1 exec amixer sset Master 0%
 
     bindsym $mod+F3 exec amixer sset Master 2%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
     bindsym $mod+F2 exec amixer sset Master 2%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
@@ -245,28 +239,30 @@ bindsym $mod+grave exec swaymsg [app_id="term_scratchpad"] scratchpad show
 exec Discord
 exec telegram-desktop
 exec spotify
-for_window [app_id="telegramdesktop"] move window to workspace 3
-for_window [class="Spotify"] move window to workspace 3
-for_window [class="discord"] move window to workspace 3
+exec evolution
+for_window [app_id="telegramdesktop"] move window to workspace side-monitor
+for_window [class="Spotify"] move window to workspace side-monitor
+for_window [class="discord"] move window to workspace side-monitor
+for_window [app_id="evolution"] move window to workspace side-monitor
+
+for_window [app_id="telegramdesktop"] mark --add "T"
+for_window [class="Spotify"] mark --add "S"
+for_window [class="discord"] mark --add "D"
+for_window [class="evolution"] mark --add "M"
 
 #
 # Resizing containers:
 #
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $right resize shrink width 10px
     bindsym $up resize grow height 10px
     bindsym $down resize shrink height 10px
     bindsym $left resize grow width 10px
-
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    
+    bindsym Shift+$right resize shrink width 50px
+    bindsym Shift+$up resize grow height 50px
+    bindsym Shift+$down resize shrink height 50px
+    bindsym Shift+$left resize grow width 50px
 
     # Return to default mode
     bindsym Return mode "default"
@@ -301,22 +297,19 @@ bindsym $mod+Alt+u [con_mark="U"] focus
 bindsym $mod+Alt+i [con_mark="I"] focus
 bindsym $mod+Alt+o [con_mark="O"] focus
 
-for_window [app_id="telegramdesktop"] mark --add "T"
-for_window [class="Spotify"] mark --add "S"
-for_window [class="discord"] mark --add "D"
-
 bindsym $mod+Alt+a [con_mark="T"] focus
 bindsym $mod+Alt+t [con_mark="T"] focus
 bindsym $mod+Alt+s [con_mark="S"] focus
 bindsym $mod+Alt+d [con_mark="D"] focus
+bindsym $mod+Alt+f [con_mark="M"] focus
 
 bindsym $mod+Alt+Shift+a mark --toggle --add "T"
 bindsym $mod+Alt+Shift+s mark --toggle --add "S"
 bindsym $mod+Alt+Shift+d mark --toggle --add "D"
+bindsym $mod+Alt+Shift+f mark --toggle --add "M"
 
 #bindsym $mod+Tab exec swaymsg "mark --add T" && swaymsg "[con_mark=T] focus"
 
-# for_window [app_id="firefox"] border pixel
 default_border pixel
 default_floating_border normal
 
@@ -327,19 +320,30 @@ default_floating_border normal
 bar {
     position top
 
-    status_command i3status-rs ~/.config/i3status-rs/config.toml
+    status_command /home/andrew/.cargo/bin/i3status-rs
 
-    font Fira Code 13
+    font Fira Code Retina 15
 
     wrap_scroll on
     output DP-2
     output DP-3
 
+    tray_padding 4
+    tray_output DP-3
+
+    status_edge_padding 2
+
+    gaps 4 256
+
+    mode hide
+
     colors {
         statusline $txt_color
-        background #323232aa
+        background #323232ee
 	focused_workspace #323232 $main_color $txt_color
-        inactive_workspace #323232aa #323232aa #5c5c5cff
+	urgent_workspace #323232 $main2_color $txt_color
+        active_workspace #323232 #323232ee #ffffff
+        inactive_workspace #323232 #323232dd #9f9f9f
     }
 }
 

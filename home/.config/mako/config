@@ -1,13 +1,17 @@
 sort=-time
-background-color=#000000
-border-color=#ee8811
+background-color=#000000de
+border-color=#ee8811df
 border-radius=4
 border-size=4
-default-timeout=3600
+default-timeout=5000
 font=Fira Code 14
 anchor=bottom-right
 width=480
+height=480
 output=DP-2
 layer=overlay
 margin=32
+
+[category=mpd]
+default-timeout=7000
 

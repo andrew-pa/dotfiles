@@ -1,38 +1,50 @@
 
 [theme]
-name = "plain"
-[theme.overrides]
-idle_bg = "#323232aa"
-good_bg = "#323232aa"
-alternating_tint_bg = "#00000000"
-alternating_tint_fg = "#000000"
-separator_bg = "#323232aa"
-separator_fg = "#828282"
-separator = "/"
-idle_fg = "#eddedd"
+name = "/home/andrew/config/home/.config/i3status-rs/theme.toml"
 
 [icons]
-name = "awesome"
+name = "none"
 [icons.overrides]
-pomodoro = " P "
-
-#[[block]]
-#block = "focused_window"
+headphones = "🤆"
+uptime = "⧗"
+cpu = "⧈"
+net_wired = "🖧"
+memory_mem = "*"
+time = "◍"
+music = "♫"
+music_play = "▷"
+music_pause = "🞐"
+music_next = "➟"
 
 [[block]]
-block = "custom"
-command='''/home/andrew/.local/bin/sp metadata | awk -F "|" '/title/{print $2} /artist/{printf "♫ %s | ", $2}' '''
-on_click='''/home/andrew/.local/bin/sp play'''
+block = "focused_window"
+max_width = 100
+show_marks = "all"
+
+#[[block]]
+#block = "custom"
+#command='''/home/andrew/.local/bin/sp metadata | awk -F "|" '/title/{print $2} /artist/{printf "♫ %s | ", $2}' '''
+#on_click='''/home/andrew/.local/bin/sp play'''
+
+[[block]]
+block = "music"
+buttons = ["play", "next"]
+max_width = 40
+marquee_interval = 10
+marquee_speed = 0.2
+hide_when_empty = true
+format = "{artist}: {title}"
+dynamic_width = true
 
 [[block]]
 block = "bluetooth"
 mac = "38:18:4C:3E:17:6C"
-label = " WH-1000MX"
+format = "WH-1000MX"
 
 [[block]]
 block = "bluetooth"
 mac = "A9:9A:BA:01:A4:6A"
-label = " CY-100"
+format = "CY-100"
 
 [[block]]
 block = "custom"
@@ -49,23 +61,28 @@ command=''' echo "do today's best" '''
 [[block]]
 block = "net"
 device = "enp6s0"
-ip = true
-interval = 5
+format = "{ip} {graph_up} {graph_down}"
+interval = 3 
+icons_format = " "
 
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mug}GB ({Mup}%)"
+format_mem = "{mem_used;K} {mem_used_percents}"
+icons_format = " "
 
 [[block]]
 block = "cpu"
 interval = 3
-format = "{utilization}% {frequency}GHz"
+format = "{frequency} {barchart}"
+icons_format = " "
 
 [[block]]
 block = "uptime"
+icons_format = " "
 
 [[block]]
 block = "time"
-interval = 5
+interval = 1
 format = "%a, %b %d %r"
+icons_format = " "

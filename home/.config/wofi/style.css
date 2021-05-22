@@ -1,6 +1,7 @@
 * {
     font-size: x-large;
     font-family: Fira Code;
+    color: #dddddd;
 }
 
 #window {
@@ -8,15 +9,19 @@
 }
 
 #scroll {
-    padding: 0.5em;
-    background-color: #323232;
+    padding: 1.0em;
+    background-color: #202020;
+    border-radius: 6px;
 }
 
 #input {
-    padding: 0.5em;
+    padding: 1.0em;
+    background-color: #202020;
     margin-bottom: 1.5em;
+    border: none;
 }
 
 #entry:selected {
-    background-color: #dd7711;
+    border: 3px solid #dd7711;
+    background-color: inherit;
 }

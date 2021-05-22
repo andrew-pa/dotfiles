@@ -30,7 +30,12 @@ shopt -s histappend
 
 # User specific aliases and functions
 alias ls='ls --color=auto -a -l -h'
-alias wvim='kitty --detach vim'
+alias vim='nvim'
+#alias wvim='neovide --disowned'
+
+wvim() { command neovide $* & disown; }
+
+export NeovideMultiGrid=enable
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

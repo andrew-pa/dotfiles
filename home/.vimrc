@@ -14,12 +14,13 @@ Plug 'jeetsukumaran/vim-markology'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Olical/conjure'
 call plug#end()
 
 " display options
-set rop=type:directx,renmode:5
+" set rop=type:directx,renmode:5
 set guioptions=
-set guifont=Fira_Code_Medium:h11
+" set guifont=Fira_Code_Medium:h11
 colorscheme noctu
 hi CursorLine ctermbg=187 cterm=none
 
@@ -30,7 +31,7 @@ endif
 " editor options
 syntax on
 set number relativenumber
-set signcolumn=number
+" set signcolumn=number
 set laststatus=2
 set hidden noshowmode nohlsearch title
 set completeopt=longest,menuone
