@@ -1,0 +1,5 @@
+{
+    "rust-analyzer.inlayHints.typeHintsSeparator": "> ",
+    "rust-analyzer.inlayHints.chainingHintsSeparator": "| ",
+    "clangd.semanticHighlighting": true
+}

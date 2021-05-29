@@ -1,6 +1,6 @@
 
 [theme]
-name = "/home/andrew/config/home/.config/i3status-rs/theme.toml"
+name = "/home/andrew/.config/i3status-rust/theme.toml"
 
 [icons]
 name = "none"
@@ -39,12 +39,14 @@ dynamic_width = true
 [[block]]
 block = "bluetooth"
 mac = "38:18:4C:3E:17:6C"
-format = "WH-1000MX"
+icons_format = " "
+format = ""
 
 [[block]]
 block = "bluetooth"
 mac = "A9:9A:BA:01:A4:6A"
-format = "CY-100"
+icons_format = " "
+format = "🕪"
 
 [[block]]
 block = "custom"
