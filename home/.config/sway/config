@@ -27,7 +27,7 @@ exec_always gammastep
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg #111111 solid_color
-output * bg ~/background3.png tile
+output * bg ~/config/background.png tile
 
 #
 # Example configuration:
