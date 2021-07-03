@@ -1,16 +1,37 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set runtimepath^=~/config/nvim
 let &packpath = &runtimepath
-source ~/.vimrc
+source ~/config/home/.vim/common.vim
 
-"if exists("g:neovide_refresh_rate")
+lua require('plugins')
+
+set number relativenumber
+set title noshowmode hidden
+set softtabstop=4 shiftwidth=4 expandtab
+set linebreak breakindent
+
+set nohlsearch
+augroup vimrc-incsearch-highlight
+	autocmd!
+	autocmd CmdlineEnter /,\? :set hlsearch
+	autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
+
+set list
+set listchars=tab:––→,trail:~,extends:>,precedes:<,space:·
+
+
+set statusline=%<%f\ %q%h%m%r\ \ %*%=%-26.(%y\ ln\ %l\ col\ %v%)\ %P
+set titlestring=vim\ [%F\ %P]
+
+au FocusLost * silent! :wa
+
+if exists('g:neovide')
     colorscheme tugui
-"endif
+else
+    colorscheme noctu
+endif
 
 set guifont=Fira\ Code:h22
 let g:neovide_cursor_animation_length=0.02
 let g:neovide_cursor_animate_command_line=0
-
-let g:conjure#log#hug#width=0.6
-let g:conjure#log#wrap=1
-nnoremap <Leader>e :ConjureEval<Space>
 
