@@ -2,12 +2,13 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
-" if exists("g:neovide_refresh_rate")
+"if exists("g:neovide_refresh_rate")
     colorscheme tugui
-" endif
+"endif
 
 set guifont=Fira\ Code:h22
-let g:neovide_cursor_animation_length=0
+let g:neovide_cursor_animation_length=0.02
+let g:neovide_cursor_animate_command_line=0
 
 let g:conjure#log#hug#width=0.6
 let g:conjure#log#wrap=1

@@ -15,6 +15,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Olical/conjure'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " display options
@@ -97,11 +98,13 @@ nmap <Leader>r <Plug>(coc-fix-current)
 nmap <Leader>t <Plug>(coc-codeaction)
 xmap <Leader>a <Plug>(coc-codeaction-selected)
 nmap <Leader>a <Plug>(coc-codeaction-selected)
+nmap <silent> <Leader>s :CocList symbols<CR>
+nmap <silent> <Leader>o :CocList outline<CR>
 
 xmap <Leader>= <Plug>(coc-format-selected)
 nmap <Leader>= <Plug>(coc-format-selected)
 
-nmap <Leader>s :CocCommand 
+nmap <Leader>S :CocCommand 
 
 augroup cocgroup
     autocmd!

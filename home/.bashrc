@@ -31,27 +31,9 @@ shopt -s histappend
 # User specific aliases and functions
 alias ls='ls --color=auto -a -l -h'
 alias vim='nvim'
-#alias wvim='neovide --disowned'
+#alias wvim='kitty --detach nvim'
 
-wvim() { command neovide $* & disown; }
-
-export NeovideMultiGrid=enable
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/andrew/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/andrew/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/andrew/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/andrew/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+function wvim() { command neovide --multiGrid $* & disown; }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
