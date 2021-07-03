@@ -33,7 +33,7 @@ alias ls='ls --color=auto -a -l -h'
 alias vim='nvim'
 #alias wvim='kitty --detach nvim'
 
-function wvim() { command neovide --multiGrid $* & disown; }
+function wvim() { command neovide $* & disown; }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

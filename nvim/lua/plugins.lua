@@ -22,7 +22,10 @@ return require('packer').startup(function()
         'hrsh7th/nvim-compe',
         config = require('compe_config')
     }
-    use { 'rmagatti/goto-preview' }
+    use {
+        'rmagatti/goto-preview',
+        requires = 'neovim/nvim-lspconfig'
+    }
     use { 'ray-x/lsp_signature.nvim' }
     use {
         'simrat39/rust-tools.nvim',
@@ -34,6 +37,9 @@ return require('packer').startup(function()
                         show_parameter_hints = false,
                         other_hints_prefix = ":",
                     }
+                },
+                server = {
+                    on_attach = require('lsp_attach')
                 }
             }
         end
@@ -92,5 +98,14 @@ return require('packer').startup(function()
         config = function()
             require('treesitter-context.config').setup { enable = true }
         end
+    }
+
+    -- Telescope
+    use 'nvim-lua/popup.nvim'
+    use 'nvim-lua/plenary.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        config = require('telescope_config')
     }
 end)
