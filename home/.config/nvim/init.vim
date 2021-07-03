@@ -8,6 +8,7 @@ set number relativenumber
 set title noshowmode hidden
 set softtabstop=4 shiftwidth=4 expandtab
 set linebreak breakindent
+set completeopt=menuone,noselect
 
 set nohlsearch
 augroup vimrc-incsearch-highlight
@@ -24,6 +25,8 @@ set statusline=%<%f\ %q%h%m%r\ \ %*%=%-26.(%y\ ln\ %l\ col\ %v%)\ %P
 set titlestring=vim\ [%F\ %P]
 
 au FocusLost * silent! :wa
+
+au BufEnter *.rs silent! :RustSetInlayHints
 
 if exists('g:neovide')
     colorscheme tugui
