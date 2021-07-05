@@ -19,6 +19,7 @@ return function()
             buffer = true,
             spell = true,
             calc = true,
+            emoji = true,
             nvim_lsp = true,
             nvim_treesitter = true
         };

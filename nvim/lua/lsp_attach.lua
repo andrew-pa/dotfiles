@@ -17,6 +17,9 @@ return function(client, bufnr)
     keymap('n', '<Leader>s', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', opts)
     keymap('n', '<Leader>o', '<cmd>Telescope lsp_document_symbols<CR>', opts)
     keymap('n', '<Leader>r', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    keymap('n', '<Leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
     require('lsp_signature').on_attach {
         hint_enable = false

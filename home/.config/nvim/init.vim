@@ -5,7 +5,7 @@ source ~/config/home/.vim/common.vim
 lua require('plugins')
 
 set number relativenumber
-set title noshowmode hidden
+set title noshowmode hidden cursorline
 set softtabstop=4 shiftwidth=4 expandtab
 set linebreak breakindent
 set completeopt=menuone,noselect
@@ -27,6 +27,7 @@ set titlestring=vim\ [%F\ %P]
 au FocusLost * silent! :wa
 
 au BufEnter *.rs silent! :RustSetInlayHints
+au FileType TelescopePrompt silent! call compe#setup({'enabled': v:false}, 0)
 
 if exists('g:neovide')
     colorscheme tugui
