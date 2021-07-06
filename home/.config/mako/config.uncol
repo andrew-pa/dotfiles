@@ -1,7 +1,7 @@
 sort=-time
-text-color=#fff8d8
-background-color=#000000de
-border-color=#eb8811
+text-color=~~!#fg!
+background-color=~~!a#bg a87!
+border-color=~~!#border!
 border-radius=4
 border-size=4
 default-timeout=5000

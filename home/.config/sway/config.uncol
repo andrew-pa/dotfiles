@@ -15,7 +15,7 @@ set $term kitty
 # on the original workspace that the command was run on.
 set $run_menu wofi --show drun -i -G "swaymsg exec {cmd}" --style=/home/andrew/.config/wofi/style.css
 
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -acenter -abottom -M64 --background-color=#42000000 --bar-color=#deeb8811 --border-color=#ed373432 -W512 -H40
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -acenter -abottom -M64 --background-color=~~!A#bg a26! --bar-color=~~!A#main-accent a87! --border-color=~~!A#dark-gray a93! -W512 -H40
 
 exec_always gammastep
 
@@ -321,18 +321,18 @@ bar {
     mode hide
 
     colors {
-        statusline #fff8d8ff
-        background #373432ed
-        focused_workspace #cc6e00ff #eb8811ff #000000ff
-        urgent_workspace #ad0254ff #cb326cff #000000ff
-        active_workspace #504a46ed #68625ded #fff8d8ff
-        inactive_workspace #504a46ed #68625ded #d8c0a1ff
+        statusline ~~!a#fg!
+        background ~~!a#dark-gray a93!
+        focused_workspace ~~!a#main-accent li-10! ~~!a#main-accent! ~~!a#bg!
+        urgent_workspace ~~!a#purple li-10! ~~!a#purple! ~~!a#bg!
+        active_workspace ~~!a#med-gray li-10 a93! ~~!a#med-gray a93! ~~!a#fg!
+        inactive_workspace ~~!a#med-gray li-10 a93! ~~!a#med-gray a93! ~~!a#fg li-20!
     }
 }
 
-client.focused #eb8811ff #eb8811ff #000000ff #af5400ff
-client.focused_inactive #373432ff #68625dff #fffbefff #666360ff
-client.unfocused #373432ff #373432ff #dad0c4ff #666360ff
+client.focused ~~!a#main-accent! ~~!a#main-accent! ~~!a#bg! ~~!a#main-accent li-20 st+5!
+client.focused_inactive ~~!a#dark-gray! ~~!a#med-gray! ~~!a#fg st-62! ~~!a#dark-gray li+20 st+5!
+client.unfocused ~~!a#dark-gray! ~~!a#dark-gray! ~~!a#fg st-62 li-15! ~~!a#dark-gray li+20 st+5!
 
 font Fira Code 12
 gaps inner 8

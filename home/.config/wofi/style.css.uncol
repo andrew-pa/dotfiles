@@ -1,12 +1,12 @@
 * {
     font-size: x-large;
     font-family: Fira Code;
-    color: rgb(100.00%, 97.38%, 84.82%);
+    color: ~~!$fg!;
 }
 
 #window {
-    background-color: rgba(0.00%, 0.00%, 0.00%, 0.90);
-    border: 1px solid rgb(92.16%, 53.34%, 6.62%);
+    background-color: ~~!a$bg a90!;
+    border: 1px solid ~~!$border!;
     border-radius: 8px;
 }
 
@@ -23,7 +23,7 @@
 }
 
 #entry:selected {
-    border: 3px solid rgb(92.16%, 53.34%, 6.62%);
+    border: 3px solid ~~!$border!;
     border-radius: 8px;
     background-color: inherit;
 }

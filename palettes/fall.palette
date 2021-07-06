@@ -1,0 +1,22 @@
+# Fall 2021 colors
+
+white=l99c19h78
+red=l46c81h44
+green=l57c65h120
+yellow=l75c68h82
+#actually purple, because blue just wouldn't match
+blue=l33c53h326
+#likewise, actually pink
+purple=l47c63h3
+cyan=l57c26h143
+
+bg=l0c0h66
+#old foreground was actually closer to: l91c30h91
+fg=white
+
+main-accent=l66c76h66
+dark-gray=bg li+22 ch2
+med-gray=bg li+42 ch4
+light-gray=bg li+62 ch6
+
+border=main-accent

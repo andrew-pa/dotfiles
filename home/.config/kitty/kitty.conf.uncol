@@ -1,0 +1,31 @@
+font_family Fira Code
+font_size 16.0
+linux_display_server wayland
+info
+dynamic_background_opacity yes
+enable_audio_bell no
+
+map ctrl+enter launch --cwd=current --type=os-window --copy-env
+
+background ~~!#bg!
+foreground ~~!#fg!
+cursor ~~!#fg li+8 st+8!
+
+color0 ~~!#$black!
+color1 ~~!#red!
+color2 ~~!#green!
+color3 ~~!#yellow!
+color4 ~~!#blue!
+color5 ~~!#purple!
+color6 ~~!#cyan!
+color7 ~~!#white!
+
+color8 ~~!#$black li+38!
+color9 ~~!#red li+10 st+4!
+color10 ~~!#green li+10 st+4!
+color11 ~~!#yellow li+10 st+4!
+color12 ~~!#blue li+10 st+4!
+color13 ~~!#purple li+10 st+4!
+color14 ~~!#cyan li+10 st+4!
+color15 ~~!#white li+10 st+4!
+
