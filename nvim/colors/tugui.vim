@@ -1,8 +1,5 @@
-" noctu.vim - Vim color scheme for 16-color terminals
-" --------------------------------------------------------------
-" Author:   Noah Frederick (http://noahfrederick.com/)
-" Version:  1.8.0
-" --------------------------------------------------------------
+" tugui.vim - Vim color scheme for Unipalette
+" generated from noctu.vim
 
 " Scheme setup {{{
 set background=dark
@@ -16,48 +13,48 @@ let g:colors_name = "tugui"
 
 "}}}
 " Vim UI {{{
-hi Normal              guifg=#fae0c0 gui=none
-hi Cursor              guifg=#fae0c0     guibg=#cc360e
-hi CursorLine          guibg=#090908     gui=NONE
-hi MatchParen          guifg=#fae0c0     ctermbg=NONE  gui=underline
-hi Pmenu               guifg=#cc360e5    guibg=#000000
-hi PmenuThumb          guibg=#fae0c0
+hi Normal              guifg=#fff8d8
+hi Cursor              guifg=#ffffe6     guibg=#cc3307
+hi CursorLine          guibg=#111111     gui=NONE
+hi MatchParen          guifg=#fff8d8 guibg=#875015
+hi Pmenu               guifg=#fff8d8    guibg=#000000
+hi PmenuThumb          guibg=#fff8d8
 hi PmenuSBar           guibg=#595959
-hi PmenuSel            guifg=#000000     guibg=#7d4380
+hi PmenuSel            guifg=#000000     guibg=#a45b00
 hi ColorColumn         guibg=#000000
-hi SpellBad            guifg=#cc360e     ctermbg=NONE  gui=underline
-hi SpellCap            guifg=#cc360e0    ctermbg=NONE  gui=underline
-hi SpellRare           guifg=#cc360e1    ctermbg=NONE  gui=underline
-hi SpellLocal          guifg=#cc360e3    ctermbg=NONE  gui=underline
+hi SpellBad            guifg=#cc3307     ctermbg=NONE  gui=underline
+hi SpellCap            guifg=#85b12d    ctermbg=NONE  gui=underline
+hi SpellRare           guifg=#ffcb48    ctermbg=NONE  gui=underline
+hi SpellLocal          guifg=#ed4d85    ctermbg=NONE  gui=underline
 hi NonText             guifg=#595959
 hi LineNr              guifg=#595959     ctermbg=NONE
-hi CursorLineNr        guifg=#cc360e1    guibg=#000000
-hi Visual              guibg=#424140     guifg=#cc360e2
-hi IncSearch           guibg=#424140     guifg=#cc360e3    gui=NONE
-hi Search              guibg=#424140     guifg=#cc360e0
-hi StatusLine          guifg=#fae0c0     guibg=#0f0a00     gui=bold
-hi StatusLineNC        guifg=#595959     guibg=#0a0100     gui=NONE
+hi CursorLineNr        guifg=#eb8811    guibg=#000000
+hi Visual              guibg=#1f1f1f
+hi IncSearch           guifg=#000000     guibg=#ffa22b    gui=NONE
+hi Search              guifg=#fff8d8     guibg=#373432
+hi StatusLine          guifg=#ffeac7     guibg=#200800     gui=bold
+hi StatusLineNC        guifg=#68625d     guibg=#0b0b0b     gui=NONE
 hi VertSplit           guifg=#000000     guibg=#000000     gui=NONE
 hi TabLine             guifg=#595959     guibg=#000000     gui=NONE
-hi TabLineSel          guifg=#fae0c0     guibg=#000000
-hi Folded              guifg=#6a9270     guibg=#000000     gui=bold
-hi Conceal             guifg=#6a9270     ctermbg=NONE
-hi Directory           guifg=#cc360e2
-hi Title               guifg=#c9950e     gui=bold
-hi ErrorMsg            guifg=#cc360e5    guibg=#cc360e
-hi DiffAdd             guifg=#000000     guibg=#6a9511
-hi DiffChange          guifg=#000000     guibg=#c9950e
-hi DiffDelete          guifg=#000000     guibg=#cc360e
-hi DiffText            guifg=#000000     guibg=#cc360e1    gui=bold
-hi User1               guifg=#cc360e     guibg=#000000
-hi User2               guifg=#7d4380     guibg=#000000
-hi User3               guifg=#6a9511     guibg=#000000
-hi User4               guifg=#c9950e     guibg=#000000
-hi User5               guifg=#cc336d     guibg=#000000
-hi User6               guifg=#6a9270     guibg=#000000
-hi User7               guifg=#fae0c0     guibg=#000000
+hi TabLineSel          guifg=#fff8d8     guibg=#000000
+hi Folded              guifg=#6d926d     guibg=#000000     gui=bold
+hi Conceal             guifg=#6d926d     ctermbg=NONE
+hi Directory           guifg=#964699
+hi Title               guifg=#e8b032     gui=bold
+hi ErrorMsg            guifg=#fffff3    guibg=#cc3307
+hi DiffAdd             guifg=#000000     guibg=#6b9614
+hi DiffChange          guifg=#000000     guibg=#e8b032
+hi DiffDelete          guifg=#000000     guibg=#cc3307
+hi DiffText            guifg=#000000     guibg=#ffcb48    gui=bold
+hi User1               guifg=#cc3307     guibg=#000000
+hi User2               guifg=#792e7d     guibg=#000000
+hi User3               guifg=#6b9614     guibg=#000000
+hi User4               guifg=#e8b032     guibg=#000000
+hi User5               guifg=#cb326c     guibg=#000000
+hi User6               guifg=#6d926d     guibg=#000000
+hi User7               guifg=#fff8d8     guibg=#000000
 hi User8               guifg=#595959     guibg=#000000
-hi User9               guifg=#cc360e5    guibg=#cc336d
+hi User9               guifg=#fffff3    guibg=#cb326c
 hi! link CursorColumn  CursorLine
 hi! link SignColumn    LineNr
 hi! link WildMenu      Visual
@@ -71,20 +68,20 @@ hi! link SpecialKey    NonText
 
 "}}}
 " Generic syntax {{{
-hi Delimiter       guifg=#fae0c0
+hi Delimiter       guifg=#fff8d8
 hi Comment         guifg=#595959
-hi Underlined      guifg=#7d4380   gui=underline
-hi Type            guifg=#d03c14
-hi String          guifg=#cc360e1
-hi Keyword         guifg=#6a9511
-hi Todo            guifg=#cc360e5  ctermbg=NONE     gui=bold,underline
-hi Function        guifg=#7d4380
-hi Identifier      guifg=#fae0c0   gui=NONE
-hi Statement       guifg=#6a9511   gui=bold
-hi Constant        guifg=#cc360e3
-hi Number          guifg=#cc360e2
-hi Boolean         guifg=#cc360e
-hi Special         guifg=#cc360e3
+hi Underlined      gui=underline
+hi Type            guifg=#f04d1f
+hi String          guifg=#ffcb48
+hi Keyword         guifg=#6b9614
+hi Todo            guifg=#fffff3 guibg=#111111  ctermbg=NONE     gui=bold,underline
+hi Function        guifg=#a62c79
+hi Identifier      guifg=#ffbfd8   gui=none
+hi Statement       guifg=#6b9614   gui=bold
+hi Constant        guifg=#ed4d85
+hi Number          guifg=#fb8a13
+hi Boolean         guifg=#cc3307
+hi Special         guifg=#ed4d85
 hi Ignore          guifg=#000000
 hi PreProc         guifg=#595959   gui=bold
 hi! link Operator  Delimiter
@@ -92,9 +89,9 @@ hi! link Error     ErrorMsg
 
 "}}}
 " HTML {{{
-hi htmlTagName              guifg=#6a9511
-hi htmlTag                  guifg=#6a9511
-hi htmlArg                  guifg=#cc360e0
+hi htmlTagName              guifg=#6b9614
+hi htmlTag                  guifg=#6b9614
+hi htmlArg                  guifg=#85b12d
 hi htmlH1                   gui=bold
 hi htmlBold                 gui=bold
 hi htmlItalic               gui=underline
@@ -108,8 +105,8 @@ hi! link htmlEndTag         htmlTag
 
 "}}}
 " XML {{{
-hi xmlTagName       guifg=#7d4380
-hi xmlTag           guifg=#cc360e2
+hi xmlTagName       guifg=#792e7d
+hi xmlTag           guifg=#964699
 hi! link xmlString  xmlTagName
 hi! link xmlAttrib  xmlTag
 hi! link xmlEndTag  xmlTag
@@ -122,8 +119,8 @@ hi! link javaScriptBraces  Delimiter
 
 "}}}
 " PHP {{{
-hi phpSpecialFunction    guifg=#cc336d
-hi phpIdentifier         guifg=#cc360e1
+hi phpSpecialFunction    guifg=#cb326c
+hi phpIdentifier         guifg=#ffcb48
 hi phpParent             guifg=#595959
 hi! link phpVarSelector  phpIdentifier
 hi! link phpHereDoc      String
@@ -142,7 +139,7 @@ hi! link markdownAutomaticLink      markdownLinkText
 hi! link markdownCodeBlock          String
 hi markdownCode                     gui=bold
 hi markdownBold                     gui=bold
-hi markdownItalic                   gui=italic
+hi markdownItalic                   gui=underline
 
 "}}}
 " Ruby {{{
@@ -154,11 +151,11 @@ hi! link rubyStringDelimiter        rubyString
 
 "}}}
 " Git {{{
-hi gitCommitBranch               guifg=#c9950e
-hi gitCommitSelectedType         guifg=#cc360e0
-hi gitCommitSelectedFile         guifg=#6a9511
-hi gitCommitUnmergedType         guifg=#d03c14
-hi gitCommitUnmergedFile         guifg=#cc360e
+hi gitCommitBranch               guifg=#e8b032
+hi gitCommitSelectedType         guifg=#85b12d
+hi gitCommitSelectedFile         guifg=#6b9614
+hi gitCommitUnmergedType         guifg=#f04d1f
+hi gitCommitUnmergedFile         guifg=#cc3307
 hi! link gitCommitFile           Directory
 hi! link gitCommitUntrackedFile  gitCommitUnmergedFile
 hi! link gitCommitDiscardedType  gitCommitUnmergedType
@@ -172,7 +169,7 @@ hi! link vimHiAttrib  Constant
 
 "}}}
 " LESS {{{
-hi lessVariable             guifg=#cc360e1
+hi lessVariable             guifg=#ffcb48
 hi! link lessVariableValue  Normal
 
 "}}}
@@ -203,45 +200,45 @@ hi! link CtrlPLinePre  Comment
 
 "}}}
 " Mustache {{{
-hi mustacheSection           guifg=#cc360e4  gui=bold
-hi mustacheMarker            guifg=#6a9270
-hi mustacheVariable          guifg=#cc360e4
-hi mustacheVariableUnescape  guifg=#d03c14
-hi mustachePartial           guifg=#cc360e3
+hi mustacheSection           guifg=#85ad85  gui=bold
+hi mustacheMarker            guifg=#6d926d
+hi mustacheVariable          guifg=#85ad85
+hi mustacheVariableUnescape  guifg=#f04d1f
+hi mustachePartial           guifg=#ed4d85
 
 "}}}
 " Shell {{{
-hi shDerefSimple     guifg=#cc360e1
+hi shDerefSimple     guifg=#ffcb48
 hi! link shDerefVar  shDerefSimple
 
 "}}}
 " Syntastic {{{
-hi SyntasticWarningSign       guifg=#c9950e  ctermbg=NONE
-hi SyntasticErrorSign         guifg=#cc360e  ctermbg=NONE
-hi SyntasticStyleWarningSign  guifg=#6a9511  ctermbg=NONE
-hi SyntasticStyleErrorSign    guifg=#7d4380  ctermbg=NONE
+hi SyntasticWarningSign       guifg=#e8b032  ctermbg=NONE
+hi SyntasticErrorSign         guifg=#cc3307  ctermbg=NONE
+hi SyntasticStyleWarningSign  guifg=#6b9614  ctermbg=NONE
+hi SyntasticStyleErrorSign    guifg=#792e7d  ctermbg=NONE
 
 "}}}
 " Netrw {{{
-hi netrwExe       guifg=#d03c14
+hi netrwExe       guifg=#f04d1f
 hi netrwClassify  guifg=#595959  gui=bold
 
 "}}}
 " Ledger {{{
-hi ledgerAccount  guifg=#cc360e1
+hi ledgerAccount  guifg=#ffcb48
 hi! link ledgerMetadata  Comment
 hi! link ledgerTransactionStatus  Statement
 
 "}}}
 " Diff {{{
-hi diffAdded  guifg=#6a9511
-hi diffRemoved  guifg=#cc360e
+hi diffAdded  guifg=#6b9614
+hi diffRemoved  guifg=#cc3307
 hi! link diffFile  PreProc
 hi! link diffLine  Title
 
 "}}}
 " Plug {{{
-hi plugSha  guifg=#c9950e
+hi plugSha  guifg=#e8b032
 
 "}}}
 " Blade {{{
@@ -251,11 +248,10 @@ hi! link bladeEchoDelim  PreProc
 
 "}}}
 
-hi rustModPath            guifg=#7d4380
-hi Macro                  guifg=#6a9511
-hi plaintexControlSequence guifg=#cc360e3
-hi initexJobCommand guifg=#cc360e3
-hi CocHintSign guifg=#595959
-hi CocHighlightText guibg=#151210
+hi rustModPath            guifg=#792e7d
+hi Macro                  guifg=#6b9614
+hi plaintexControlSequence guifg=#ed4d85
+hi initexJobCommand guifg=#ed4d85
+hi TreesitterContext guibg=#1b1b1b gui=italic
 
 " vim: fdm=marker:sw=2:sts=2:et

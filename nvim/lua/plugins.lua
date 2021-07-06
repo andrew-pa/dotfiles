@@ -3,6 +3,7 @@ return require('packer').startup(function()
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'tomtom/tcomment_vim'
+    use 'rust-lang/rust.vim'
 
     -- Language Server Protocol
     use { 

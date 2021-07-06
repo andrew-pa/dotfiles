@@ -1,0 +1,257 @@
+" tugui.vim - Vim color scheme for Unipalette
+" generated from noctu.vim
+
+" Scheme setup {{{
+set background=dark
+hi! clear
+
+if exists("syntax_on")
+  syntax reset
+endif
+
+let g:colors_name = "tugui"
+
+"}}}
+" Vim UI {{{
+hi Normal              guifg=~~!#fg!
+hi Cursor              guifg=~~!#fg li+5!     guibg=~~!#red!
+hi CursorLine          guibg=~~!#bg li+5!     gui=NONE
+hi MatchParen          guifg=~~!#white! guibg=~~!#main-accent *0.4* bg!
+hi Pmenu               guifg=~~!#white!    guibg=~~!#$black!
+hi PmenuThumb          guibg=~~!#white!
+hi PmenuSBar           guibg=~~!#$black li+38!
+hi PmenuSel            guifg=~~!#$black!     guibg=~~!#main-accent st-20 li-20!
+hi ColorColumn         guibg=~~!#$black!
+hi SpellBad            guifg=~~!#red!     ctermbg=NONE  gui=underline
+hi SpellCap            guifg=~~!#green li+10 st+4!    ctermbg=NONE  gui=underline
+hi SpellRare           guifg=~~!#yellow li+10 st+4!    ctermbg=NONE  gui=underline
+hi SpellLocal          guifg=~~!#purple li+10 st+4!    ctermbg=NONE  gui=underline
+hi NonText             guifg=~~!#$black li+38!
+hi LineNr              guifg=~~!#$black li+38!     ctermbg=NONE
+hi CursorLineNr        guifg=~~!#main-accent!    guibg=~~!#$black!
+hi Visual              guibg=~~!#bg st+20 li+12!
+hi IncSearch           guifg=~~!#$black!     guibg=~~!#main-accent li+10 st+4!    gui=NONE
+hi Search              guifg=~~!#white!     guibg=~~!#dark-gray!
+hi StatusLine          guifg=~~!#white li-5 st+10!     guibg=~~!#main-accent li-62 st-80!     gui=bold
+hi StatusLineNC        guifg=~~!#med-gray!     guibg=~~!#bg li+3 st+20!     gui=NONE
+hi VertSplit           guifg=~~!#$black!     guibg=~~!#$black!     gui=NONE
+hi TabLine             guifg=~~!#$black li+38!     guibg=~~!#$black!     gui=NONE
+hi TabLineSel          guifg=~~!#white!     guibg=~~!#$black!
+hi Folded              guifg=~~!#cyan!     guibg=~~!#$black!     gui=bold
+hi Conceal             guifg=~~!#cyan!     ctermbg=NONE
+hi Directory           guifg=~~!#blue li+10 st+4!
+hi Title               guifg=~~!#yellow!     gui=bold
+hi ErrorMsg            guifg=~~!#white li+10 st+4!    guibg=~~!#red!
+hi DiffAdd             guifg=~~!#$black!     guibg=~~!#green!
+hi DiffChange          guifg=~~!#$black!     guibg=~~!#yellow!
+hi DiffDelete          guifg=~~!#$black!     guibg=~~!#red!
+hi DiffText            guifg=~~!#$black!     guibg=~~!#yellow li+10 st+4!    gui=bold
+hi User1               guifg=~~!#red!     guibg=~~!#$black!
+hi User2               guifg=~~!#blue!     guibg=~~!#$black!
+hi User3               guifg=~~!#green!     guibg=~~!#$black!
+hi User4               guifg=~~!#yellow!     guibg=~~!#$black!
+hi User5               guifg=~~!#purple!     guibg=~~!#$black!
+hi User6               guifg=~~!#cyan!     guibg=~~!#$black!
+hi User7               guifg=~~!#white!     guibg=~~!#$black!
+hi User8               guifg=~~!#$black li+38!     guibg=~~!#$black!
+hi User9               guifg=~~!#white li+10 st+4!    guibg=~~!#purple!
+hi! link CursorColumn  CursorLine
+hi! link SignColumn    LineNr
+hi! link WildMenu      Visual
+hi! link FoldColumn    SignColumn
+hi! link WarningMsg    ErrorMsg
+hi! link MoreMsg       Title
+hi! link Question      MoreMsg
+hi! link ModeMsg       MoreMsg
+hi! link TabLineFill   StatusLineNC
+hi! link SpecialKey    NonText
+
+"}}}
+" Generic syntax {{{
+hi Delimiter       guifg=~~!#white!
+hi Comment         guifg=~~!#$black li+38!
+hi Underlined      gui=underline
+hi Type            guifg=~~!#red li+10 st+4!
+hi String          guifg=~~!#yellow li+10 st+4!
+hi Keyword         guifg=~~!#green!
+hi Todo            guifg=~~!#white li+10 st+4! guibg=~~!#bg li+5!  ctermbg=NONE     gui=bold,underline
+hi Function        guifg=~~!#purple *0.5* blue!
+hi Identifier      guifg=~~!#purple st-40 li+40!   gui=none
+hi Statement       guifg=~~!#green!   gui=bold
+hi Constant        guifg=~~!#purple li+10 st+4!
+hi Number          guifg=~~!#(red *0.5* yellow) li+8 st+8!
+hi Boolean         guifg=~~!#red!
+hi Special         guifg=~~!#purple li+10 st+4!
+hi Ignore          guifg=~~!#$black!
+hi PreProc         guifg=~~!#$black li+38!   gui=bold
+hi! link Operator  Delimiter
+hi! link Error     ErrorMsg
+
+"}}}
+" HTML {{{
+hi htmlTagName              guifg=~~!#green!
+hi htmlTag                  guifg=~~!#green!
+hi htmlArg                  guifg=~~!#green li+10 st+4!
+hi htmlH1                   gui=bold
+hi htmlBold                 gui=bold
+hi htmlItalic               gui=underline
+hi htmlUnderline            gui=underline
+hi htmlBoldItalic           gui=bold,underline
+hi htmlBoldUnderline        gui=bold,underline
+hi htmlUnderlineItalic      gui=underline
+hi htmlBoldUnderlineItalic  gui=bold,underline
+hi! link htmlLink           Underlined
+hi! link htmlEndTag         htmlTag
+
+"}}}
+" XML {{{
+hi xmlTagName       guifg=~~!#blue!
+hi xmlTag           guifg=~~!#blue li+10 st+4!
+hi! link xmlString  xmlTagName
+hi! link xmlAttrib  xmlTag
+hi! link xmlEndTag  xmlTag
+hi! link xmlEqual   xmlTag
+
+"}}}
+" JavaScript {{{
+hi! link javaScript        Normal
+hi! link javaScriptBraces  Delimiter
+
+"}}}
+" PHP {{{
+hi phpSpecialFunction    guifg=~~!#purple!
+hi phpIdentifier         guifg=~~!#yellow li+10 st+4!
+hi phpParent             guifg=~~!#$black li+38!
+hi! link phpVarSelector  phpIdentifier
+hi! link phpHereDoc      String
+hi! link phpDefine       Statement
+
+"}}}
+" Markdown {{{
+hi! link markdownHeadingRule        NonText
+hi! link markdownHeadingDelimiter   markdownHeadingRule
+hi! link markdownLinkDelimiter      Delimiter
+hi! link markdownURLDelimiter       Delimiter
+hi! link markdownCodeDelimiter      NonText
+hi! link markdownLinkTextDelimiter  markdownLinkDelimiter
+hi! link markdownUrl                markdownLinkText
+hi! link markdownAutomaticLink      markdownLinkText
+hi! link markdownCodeBlock          String
+hi markdownCode                     gui=bold
+hi markdownBold                     gui=bold
+hi markdownItalic                   gui=underline
+
+"}}}
+" Ruby {{{
+hi! link rubyDefine                 Statement
+hi! link rubyLocalVariableOrMethod  Identifier
+hi! link rubyConstant               Constant
+hi! link rubyInstanceVariable       Number
+hi! link rubyStringDelimiter        rubyString
+
+"}}}
+" Git {{{
+hi gitCommitBranch               guifg=~~!#yellow!
+hi gitCommitSelectedType         guifg=~~!#green li+10 st+4!
+hi gitCommitSelectedFile         guifg=~~!#green!
+hi gitCommitUnmergedType         guifg=~~!#red li+10 st+4!
+hi gitCommitUnmergedFile         guifg=~~!#red!
+hi! link gitCommitFile           Directory
+hi! link gitCommitUntrackedFile  gitCommitUnmergedFile
+hi! link gitCommitDiscardedType  gitCommitUnmergedType
+hi! link gitCommitDiscardedFile  gitCommitUnmergedFile
+
+"}}}
+" Vim {{{
+hi! link vimSetSep    Delimiter
+hi! link vimContinue  Delimiter
+hi! link vimHiAttrib  Constant
+
+"}}}
+" LESS {{{
+hi lessVariable             guifg=~~!#yellow li+10 st+4!
+hi! link lessVariableValue  Normal
+
+"}}}
+" NERDTree {{{
+hi! link NERDTreeHelp      Comment
+hi! link NERDTreeExecFile  String
+
+"}}}
+" Vimwiki {{{
+hi! link VimwikiHeaderChar  markdownHeadingDelimiter
+hi! link VimwikiList        markdownListMarker
+hi! link VimwikiCode        markdownCode
+hi! link VimwikiCodeChar    markdownCodeDelimiter
+
+"}}}
+" Help {{{
+hi! link helpExample         String
+hi! link helpHeadline        Title
+hi! link helpSectionDelim    Comment
+hi! link helpHyperTextEntry  Statement
+hi! link helpHyperTextJump   Underlined
+hi! link helpURL             Underlined
+
+"}}}
+" CtrlP {{{
+hi! link CtrlPMatch    String
+hi! link CtrlPLinePre  Comment
+
+"}}}
+" Mustache {{{
+hi mustacheSection           guifg=~~!#cyan li+10 st+4!  gui=bold
+hi mustacheMarker            guifg=~~!#cyan!
+hi mustacheVariable          guifg=~~!#cyan li+10 st+4!
+hi mustacheVariableUnescape  guifg=~~!#red li+10 st+4!
+hi mustachePartial           guifg=~~!#purple li+10 st+4!
+
+"}}}
+" Shell {{{
+hi shDerefSimple     guifg=~~!#yellow li+10 st+4!
+hi! link shDerefVar  shDerefSimple
+
+"}}}
+" Syntastic {{{
+hi SyntasticWarningSign       guifg=~~!#yellow!  ctermbg=NONE
+hi SyntasticErrorSign         guifg=~~!#red!  ctermbg=NONE
+hi SyntasticStyleWarningSign  guifg=~~!#green!  ctermbg=NONE
+hi SyntasticStyleErrorSign    guifg=~~!#blue!  ctermbg=NONE
+
+"}}}
+" Netrw {{{
+hi netrwExe       guifg=~~!#red li+10 st+4!
+hi netrwClassify  guifg=~~!#$black li+38!  gui=bold
+
+"}}}
+" Ledger {{{
+hi ledgerAccount  guifg=~~!#yellow li+10 st+4!
+hi! link ledgerMetadata  Comment
+hi! link ledgerTransactionStatus  Statement
+
+"}}}
+" Diff {{{
+hi diffAdded  guifg=~~!#green!
+hi diffRemoved  guifg=~~!#red!
+hi! link diffFile  PreProc
+hi! link diffLine  Title
+
+"}}}
+" Plug {{{
+hi plugSha  guifg=~~!#yellow!
+
+"}}}
+" Blade {{{
+hi! link bladeStructure  PreProc
+hi! link bladeParen      phpParent
+hi! link bladeEchoDelim  PreProc
+
+"}}}
+
+hi rustModPath            guifg=~~!#blue!
+hi Macro                  guifg=~~!#green!
+hi plaintexControlSequence guifg=~~!#purple li+10 st+4!
+hi initexJobCommand guifg=~~!#purple li+10 st+4!
+hi TreesitterContext guibg=~~!#bg li+10! gui=italic
+
+" vim: fdm=marker:sw=2:sts=2:et
