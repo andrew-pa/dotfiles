@@ -7,6 +7,7 @@ fi
 
 export MOZ_ENABLE_WAYLAND=1
 export RUST_BACKTRACE=1
+export EDITOR=nvim
 
 export DENO_INSTALL="$HOME/.deno"
 

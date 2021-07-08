@@ -109,4 +109,13 @@ return require('packer').startup(function()
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
         config = require('telescope_config')
     }
+
+    use {
+        'winston0410/mark-radar.nvim',
+        config = function()
+            require('mark-radar').setup {
+                highlight_group = "IncSearch"
+            }
+        end
+    }
 end)
