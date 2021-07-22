@@ -1,4 +1,4 @@
-# Fall 2021 colors
+# Summer 2021 colors
 
 white=l90c20h115
 red=l48c90h34
@@ -16,6 +16,7 @@ bg=l0c0h115
 fg=white
 
 main-accent=l85c106h115
+highlight=bg li+12 st+20
 dark-gray=bg li+22 ch12
 med-gray=bg li+42 ch14
 light-gray=bg li+62 ch16

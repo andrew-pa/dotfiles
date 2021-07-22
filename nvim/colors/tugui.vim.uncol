@@ -13,9 +13,9 @@ let g:colors_name = "tugui"
 
 "}}}
 " Vim UI {{{
-hi Normal              guifg=~~!#fg!
+hi Normal              guifg=~~!#fg! guibg=~~!#bg!
 hi Cursor              guifg=~~!#fg li+5!     guibg=~~!#red!
-hi CursorLine          guibg=~~!#bg li+5!     gui=NONE
+hi CursorLine          guibg=~~!#highlight!     gui=NONE
 hi MatchParen          guifg=~~!#white! guibg=~~!#main-accent *0.4* bg!
 hi Pmenu               guifg=~~!#white!    guibg=~~!#$black!
 hi PmenuThumb          guibg=~~!#white!
@@ -28,13 +28,13 @@ hi SpellRare           guifg=~~!#yellow li+10 st+4!    ctermbg=NONE  gui=underli
 hi SpellLocal          guifg=~~!#purple li+10 st+4!    ctermbg=NONE  gui=underline
 hi NonText             guifg=~~!#$black li+38!
 hi LineNr              guifg=~~!#$black li+38!     ctermbg=NONE
-hi CursorLineNr        guifg=~~!#main-accent!    guibg=~~!#$black!
-hi Visual              guibg=~~!#bg st+20 li+12!
+hi CursorLineNr        guifg=~~!#main-accent!    guibg=~~!#bg!
+hi Visual              guibg=~~!#highlight!
 hi IncSearch           guifg=~~!#$black!     guibg=~~!#main-accent li+10 st+4!    gui=NONE
 hi Search              guifg=~~!#white!     guibg=~~!#dark-gray!
-hi StatusLine          guifg=~~!#white li-5 st+10!     guibg=~~!#main-accent li-62 st-80!     gui=bold
+hi StatusLine          guifg=~~!#white li-5 st+10!     guibg=~~!#dark-gray!     gui=bold
 hi StatusLineNC        guifg=~~!#med-gray!     guibg=~~!#bg li+3 st+20!     gui=NONE
-hi VertSplit           guifg=~~!#$black!     guibg=~~!#$black!     gui=NONE
+hi VertSplit           guifg=~~!#$black!     guibg=~~!#main-accent li-62 st-85!     gui=NONE
 hi TabLine             guifg=~~!#$black li+38!     guibg=~~!#$black!     gui=NONE
 hi TabLineSel          guifg=~~!#white!     guibg=~~!#$black!
 hi Folded              guifg=~~!#cyan!     guibg=~~!#$black!     gui=bold
@@ -46,14 +46,14 @@ hi DiffAdd             guifg=~~!#$black!     guibg=~~!#green!
 hi DiffChange          guifg=~~!#$black!     guibg=~~!#yellow!
 hi DiffDelete          guifg=~~!#$black!     guibg=~~!#red!
 hi DiffText            guifg=~~!#$black!     guibg=~~!#yellow li+10 st+4!    gui=bold
-hi User1               guifg=~~!#red!     guibg=~~!#$black!
-hi User2               guifg=~~!#blue!     guibg=~~!#$black!
-hi User3               guifg=~~!#green!     guibg=~~!#$black!
-hi User4               guifg=~~!#yellow!     guibg=~~!#$black!
-hi User5               guifg=~~!#purple!     guibg=~~!#$black!
-hi User6               guifg=~~!#cyan!     guibg=~~!#$black!
-hi User7               guifg=~~!#white!     guibg=~~!#$black!
-hi User8               guifg=~~!#$black li+38!     guibg=~~!#$black!
+hi User1               guifg=~~!#red!     guibg=~~!#bg!
+hi User2               guifg=~~!#blue!     guibg=~~!#bg!
+hi User3               guifg=~~!#green!     guibg=~~!#bg!
+hi User4               guifg=~~!#yellow!     guibg=~~!#bg!
+hi User5               guifg=~~!#purple!     guibg=~~!#bg!
+hi User6               guifg=~~!#cyan!     guibg=~~!#bg!
+hi User7               guifg=~~!#white!     guibg=~~!#bg!
+hi User8               guifg=~~!#$black li+38!     guibg=~~!#bg!
 hi User9               guifg=~~!#white li+10 st+4!    guibg=~~!#purple!
 hi! link CursorColumn  CursorLine
 hi! link SignColumn    LineNr
@@ -68,15 +68,15 @@ hi! link SpecialKey    NonText
 
 "}}}
 " Generic syntax {{{
-hi Delimiter       guifg=~~!#white!
-hi Comment         guifg=~~!#$black li+38!
+hi Delimiter       guifg=~~!#fg li+10 st-50!
+hi Comment         guifg=~~!#fg li-10!
 hi Underlined      gui=underline
-hi Type            guifg=~~!#red li+10 st+4!
-hi String          guifg=~~!#yellow li+10 st+4!
+hi Type            guifg=~~!#red!
+hi String          guifg=~~!#yellow!
 hi Keyword         guifg=~~!#green!
 hi Todo            guifg=~~!#white li+10 st+4! guibg=~~!#bg li+5!  ctermbg=NONE     gui=bold,underline
 hi Function        guifg=~~!#purple *0.5* blue!
-hi Identifier      guifg=~~!#purple st-40 li+40!   gui=none
+hi Identifier      guifg=~~!#purple!   gui=none
 hi Statement       guifg=~~!#green!   gui=bold
 hi Constant        guifg=~~!#purple li+10 st+4!
 hi Number          guifg=~~!#(red *0.5* yellow) li+8 st+8!

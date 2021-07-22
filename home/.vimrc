@@ -44,6 +44,8 @@ set list
 set listchars=tab:––→,trail:~,extends:>,precedes:<,space:·
 set linebreak breakindent
 set showbreak=⮑
+set fillchars+=vert:\ 
+set signcolumn=number
 
 source ~/.vim/common.vim
 

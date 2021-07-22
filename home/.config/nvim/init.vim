@@ -9,6 +9,8 @@ set title noshowmode hidden cursorline
 set softtabstop=4 shiftwidth=4 expandtab
 set linebreak breakindent
 set completeopt=menuone,noselect
+set fillchars=vert:\ 
+set signcolumn=number
 
 set nohlsearch
 augroup vimrc-incsearch-highlight
