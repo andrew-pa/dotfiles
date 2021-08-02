@@ -66,6 +66,16 @@ device = "enp6s0"
 format = "{ip} {graph_up} {graph_down}"
 interval = 3 
 icons_format = " "
+hide_inactive = true
+
+[[block]]
+block = "net"
+device = "wlp4s0"
+format = "({ssid} {signal_strength}) {ip} {graph_up} {graph_down}"
+interval = 3 
+icons_format = " "
+hide_inactive = true
+
 
 [[block]]
 block = "memory"

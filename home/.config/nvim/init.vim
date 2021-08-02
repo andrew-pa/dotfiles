@@ -11,6 +11,7 @@ set linebreak breakindent
 set completeopt=menuone,noselect
 set fillchars=vert:\ 
 set signcolumn=number
+set updatetime=500
 
 set nohlsearch
 augroup vimrc-incsearch-highlight
@@ -37,7 +38,7 @@ else
     colorscheme noctu
 endif
 
-set guifont=Fira\ Code:h22
+set guifont=Fira\ Code:h16
 let g:neovide_cursor_animation_length=0.02
 let g:neovide_cursor_animate_command_line=0
 
