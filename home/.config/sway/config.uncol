@@ -216,8 +216,10 @@ bar {
     status_command /home/andrew/.cargo/bin/i3status-rs
     position top
     mode hide
+    output DP-1
     output DP-2
     output DP-3
+    output HDMI-A-1
     tray_output DP-3
 
     font Fira Code Retina 15
