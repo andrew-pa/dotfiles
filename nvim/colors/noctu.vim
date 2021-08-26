@@ -16,10 +16,11 @@ let g:colors_name = "noctu"
 
 "}}}
 " Vim UI {{{
-hi Normal              ctermfg=7
+"hi Normal              ctermfg=0
 hi Cursor              ctermfg=7     ctermbg=1
-hi CursorLine          ctermbg=0     cterm=NONE
-hi MatchParen          ctermfg=7     ctermbg=NONE  cterm=underline
+"hi CursorLine          ctermbg=0     cterm=NONE
+"hi MatchParen          ctermfg=7     ctermbg=NONE  cterm=underline
+hi MatchParen          ctermbg=10  cterm=underline
 hi Pmenu               ctermfg=15    ctermbg=0
 hi PmenuThumb          ctermbg=7
 hi PmenuSBar           ctermbg=8
@@ -31,7 +32,7 @@ hi SpellRare           ctermfg=11    ctermbg=NONE  cterm=underline
 hi SpellLocal          ctermfg=13    ctermbg=NONE  cterm=underline
 hi NonText             ctermfg=8
 hi LineNr              ctermfg=8     ctermbg=NONE
-hi CursorLineNr        ctermfg=11    ctermbg=0
+"hi CursorLineNr        ctermfg=11    ctermbg=0
 hi Visual              ctermfg=0     ctermbg=12
 hi IncSearch           ctermfg=0     ctermbg=13    cterm=NONE
 hi Search              ctermfg=0     ctermbg=10
@@ -71,15 +72,15 @@ hi! link SpecialKey    NonText
 
 "}}}
 " Generic syntax {{{
-hi Delimiter       ctermfg=7
-hi Comment         ctermfg=8
+hi Delimiter       ctermfg=8
+hi Comment         ctermfg=8   term=italic
 hi Underlined      ctermfg=4   cterm=underline
 hi Type            ctermfg=9
 hi String          ctermfg=11
 hi Keyword         ctermfg=2
 hi Todo            ctermfg=15  ctermbg=NONE     cterm=bold,underline
 hi Function        ctermfg=4
-hi Identifier      ctermfg=7   cterm=NONE
+hi Identifier      cterm=bold
 hi Statement       ctermfg=2   cterm=bold
 hi Constant        ctermfg=13
 hi Number          ctermfg=12

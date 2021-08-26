@@ -11,7 +11,7 @@ return function(client, bufnr)
 
     keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    keymap('n', '<Leader>k', '<cmd>lua vim.lsp.type_definition()<CR>', opts)
+    keymap('n', '<Leader>t', '<cmd>lua vim.lsp.type_definition()<CR>', opts)
     keymap('n', 'gD', '<cmd>Telescope lsp_definitions<CR>', opts)
     keymap('n', 'ggd', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     keymap('n', 'gI', '<cmd>Telescope lsp_implementations<CR>', opts)

@@ -6,7 +6,7 @@ green=l73c195h133
 yellow=(red *0.2* green) li+30
 #l75c68h82
 blue=l53c73h222
-purple=l33c94h309
+purple=l36c94h310
 #l47c63h3
 cyan=(blue *0.5* green) li+10
 #l57c96h135

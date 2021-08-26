@@ -18,7 +18,7 @@ music_next = "➟"
 
 [[block]]
 block = "focused_window"
-max_width = 100
+max_width = 64
 show_marks = "all"
 
 #[[block]]
@@ -62,8 +62,8 @@ command=''' echo "do today's best" '''
 
 [[block]]
 block = "net"
-device = "enp6s0"
-format = "{ip} {graph_up} {graph_down}"
+device = "enp7s0"
+format = "{ip} (W) {graph_up} {graph_down}"
 interval = 3 
 icons_format = " "
 hide_inactive = true
@@ -71,7 +71,7 @@ hide_inactive = true
 [[block]]
 block = "net"
 device = "wlp4s0"
-format = "({ssid} {signal_strength}) {ip} {graph_up} {graph_down}"
+format = "{ip} ({ssid} {signal_strength}) {graph_up} {graph_down}"
 interval = 3 
 icons_format = " "
 hide_inactive = true

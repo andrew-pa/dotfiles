@@ -3,6 +3,7 @@
 let mapleader = "\<Space>"
 nnoremap <Left> :bprev<CR>
 nnoremap <Right> :bnext<CR>
+nnoremap <Up> :b#<CR>
 nnoremap <Leader><Space> <C-w>w
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j

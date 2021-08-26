@@ -10,18 +10,27 @@ return require('packer').startup(function()
         'neovim/nvim-lspconfig',
         config = function()
             local lsp = require('lspconfig')
-            local servers = { "rust_analyzer", "clangd", "texlab", "rome" }
+            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp" }
             local on_attach = require('lsp_attach')
+            local caps = vim.lsp.protocol.make_client_capabilities()
+            -- caps = require('cmp_nvim_lsp').update_capabilities(caps)
             for _, server_name in ipairs(servers) do
                 lsp[server_name].setup {
-                    on_attach = on_attach
+                    on_attach = on_attach,
+                    capabilities = caps
                 }
             end
-        end
+        end,
+        after = 'nvim-cmp'
     }
     use {
-        'hrsh7th/nvim-compe',
-        config = require('compe_config')
+        'hrsh7th/nvim-cmp',
+        requires = {
+            'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path',
+            'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-calc', 'hrsh7th/cmp-emoji',
+            'hrsh7th/cmp-calc', 'kdheepak/cmp-latex-symbols'
+        },
+        config = require('cmp_config')
     }
     use {
         'rmagatti/goto-preview',
@@ -43,7 +52,8 @@ return require('packer').startup(function()
                     on_attach = require('lsp_attach')
                 }
             }
-        end
+        end,
+        after = 'nvim-lspconfig'
     }
 
     -- Treesitter
