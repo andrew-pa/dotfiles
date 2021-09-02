@@ -1,7 +1,6 @@
 font_family Fira Code
 font_size 16.0
 linux_display_server wayland
-info
 dynamic_background_opacity yes
 enable_audio_bell no
 

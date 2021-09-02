@@ -189,7 +189,7 @@ client.unfocused ~~!a#dark-gray! ~~!a#dark-gray! ~~!a#fg st-62 li-15! ~~!a#dark-
 exec kitty --class=term_scratchpad
 for_window [app_id="term_scratchpad"] move scratchpad
 
-exec Discord
+exec flatpak run com.discordapp.Discord
 for_window [class="discord"] move window to workspace side-monitor
 for_window [class="discord"] mark --add "D"
 
@@ -197,7 +197,7 @@ exec flatpak run im.riot.Riot
 for_window [class="Element"] move window to workspace side-monitor
 for_window [class="Element"] mark --add "T"
 
-exec spotify
+exec flatpak run com.spotify.Client
 for_window [class="Spotify"] move window to workspace side-monitor
 for_window [class="Spotify"] mark --add "S"
 

@@ -11,7 +11,7 @@ export EDITOR=nvim
 
 export DENO_INSTALL="$HOME/.deno"
 
-source "/opt/vulkan/1.2.170.0/setup-env.sh"
+#source "/opt/vulkan/1.2.170.0/setup-env.sh"
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
@@ -32,6 +32,7 @@ shopt -s histappend
 # User specific aliases and functions
 alias ls='ls --color=auto -a -l -h'
 alias vim='nvim'
+alias wndmn='kitty --detach nodemon'
 #alias wvim='kitty --detach nvim'
 
 function wvim() { command neovide $* & disown; }
