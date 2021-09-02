@@ -1,0 +1,7 @@
+[Unit]
+Description=Automatically backup home directory to network store
+RequiresMountsFor=/mnt/jeff/
+
+[Service]
+Type=oneshot
+ExecStart=/home/andrew/config/backup.sh
