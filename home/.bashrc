@@ -33,6 +33,7 @@ shopt -s histappend
 alias ls='ls --color=auto -a -l -h'
 alias vim='nvim'
 alias wndmn='kitty --detach nodemon'
+alias gitlog='git log --oneline'
 #alias wvim='kitty --detach nvim'
 
 function wvim() { command neovide $* & disown; }
