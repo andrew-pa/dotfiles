@@ -22,7 +22,7 @@ exec gammastep
 ### Key bindings
 ## open programs
 bindsym $mod+Return exec kitty
-bindsym $mod+g exec wofi --show drun -i -G "swaymsg exec {cmd}" --style=/home/andrew/.config/wofi/style.css
+bindsym $mod+f exec kitty --class=launcher -e ~/config/sway-launcher-desktop.sh
 bindsym $mod+Shift+F1 exec pavucontrol
 bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 bindsym $mod+p exec grim - | wl-copy -t image/png
@@ -48,7 +48,6 @@ bindsym $mod+Shift+q exec killall -s USR1 swayidle
 bindsym $mod+Ctrl+q exec systemctl suspend
 
 ## change focus
-bindsym $mod+f exec ~/config/wofi_window_switcher.sh
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
@@ -210,6 +209,9 @@ for_window [class="MATLAB*" title="Figure*"] floating enable
 for_window [app_id="zoom"] floating enable
 for_window [title="erg"] floating enable
 for_window [title="Magma.*"] floating enable
+
+# configure launcher terminal
+for_window [app_id="launcher"] floating enable, sticky enable, resize set 50 ppt 40 ppt, border pixel 8
 
 ### Status bar
 bar {
