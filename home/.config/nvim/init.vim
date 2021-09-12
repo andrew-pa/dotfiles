@@ -6,7 +6,7 @@ lua require('plugins')
 
 set number relativenumber
 set title noshowmode hidden cursorline
-set softtabstop=4 shiftwidth=4 expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set linebreak breakindent
 set completeopt=menuone,noselect
 set fillchars=vert:\ 
