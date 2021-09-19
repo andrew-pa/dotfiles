@@ -20,7 +20,15 @@ export MOZ_ENABLE_WAYLAND=1
 export RUST_BACKTRACE=1
 export EDITOR=nvim
 
-alias ls='ls --color=auto -a -l -h'
+if type -P exa &>/dev/null; then
+    export EXA_COLORS="da=38;5;8:uu=33"
+    exa_options="--long --all --classify --binary"
+    alias lsl="exa -1 $exa_options"
+    alias ls='exa --grid $exa_options'
+else
+    alias ls='ls --color=auto -a -l -h'
+    alias lsg='ls --color=auto -a -l -h'
+fi
 alias vim='nvim'
 alias wndmn='kitty --detach nodemon'
 alias gitlog='git log --oneline'

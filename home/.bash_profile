@@ -5,8 +5,8 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     if [ -z $TMUX ]; then
         tmux attach || tmux
     fi
-else
-    if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
-    fi
+fi
+
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
 fi

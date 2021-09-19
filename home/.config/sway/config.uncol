@@ -197,7 +197,7 @@ for_window [class="Element"] move window to workspace side-monitor
 for_window [class="Element"] mark --add "T"
 
 exec flatpak run com.spotify.Client
-for_window [class="Spotify"] move window to workspace side-monitor
+for_window [class="Spotify"] move window to workspace 11
 for_window [class="Spotify"] mark --add "S"
 
 exec evolution
