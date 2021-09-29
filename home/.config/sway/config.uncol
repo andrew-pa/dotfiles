@@ -173,7 +173,7 @@ bindsym $mod+e layout toggle split
 
 ### Appearance
 output * bg ~/config/background.png tile
-seat seat0 xcursor_theme oreo_spark_orange_cursors 48
+seat seat0 xcursor_theme Bibata-Modern-Ice 32
 title_align center
 default_border pixel
 default_floating_border normal

@@ -42,11 +42,11 @@ mac = "38:18:4C:3E:17:6C"
 icons_format = " "
 format = ""
 
-[[block]]
-block = "bluetooth"
-mac = "A9:9A:BA:01:A4:6A"
-icons_format = " "
-format = "🕪"
+# [[block]]
+# block = "bluetooth"
+# mac = "A9:9A:BA:01:A4:6A"
+# icons_format = " "
+# format = "🕪"
 
 [[block]]
 block = "custom"

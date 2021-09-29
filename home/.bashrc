@@ -25,9 +25,11 @@ if type -P exa &>/dev/null; then
     exa_options="--long --all --classify --binary"
     alias lsl="exa -1 $exa_options"
     alias ls='exa --grid $exa_options'
+    alias lst="exa -T $exa_options"
 else
     alias ls='ls --color=auto -a -l -h'
-    alias lsg='ls --color=auto -a -l -h'
+    alias lsl='ls'
+    alias lst='ls'
 fi
 alias vim='nvim'
 alias wndmn='kitty --detach nodemon'
