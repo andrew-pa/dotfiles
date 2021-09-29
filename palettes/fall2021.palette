@@ -1,0 +1,22 @@
+# Fall 2021 colors
+
+main-accent=l50c90h44
+
+white=($white *0.05* ~main-accent) st+10
+red=$red *0.1* main-accent
+green=$green *0.1* main-accent
+yellow=($yellow *0.25* main-accent) st-10 li-30
+blue=($blue *0.025* main-accent) li-5
+purple=$indigo *0.15* main-accent st+1
+cyan=$cyan *0.2* main-accent li+1
+
+fg=main-accent li=0 ch0
+bg=(main-accent st+01 li+60) *0.0* main-accent
+
+light-gray=bg li=15 ch3
+med-gray=bg li=42 ch4.5
+dark-gray=bg li=58 ch6
+
+border=main-accent li-10 st-10
+
+highlight=bg st+1 li-5

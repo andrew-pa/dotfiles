@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COLORSCHEME=summer.palette
+COLORSCHEME=fall2021.palette
 CONFIG_ROOT=$HOME/config
 
 unipalette $CONFIG_ROOT/palettes/$COLORSCHEME expand $CONFIG_ROOT
