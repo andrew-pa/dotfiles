@@ -2,7 +2,17 @@
 return function()
     local function keymap(...) vim.api.nvim_set_keymap(...) end
 
-    require('telescope').setup { }
+    local actions = require('telescope.actions')
+
+    require('telescope').setup {
+        defaults = {
+            mappings = {
+                i = {
+                    [ "<esc>" ] = actions.close
+                }
+            }
+        }
+    }
 
     local opts = { noremap = true, silent = true }
     keymap('n', '<leader>f', '<cmd>Telescope find_files<cr>', opts)

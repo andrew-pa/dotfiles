@@ -264,7 +264,7 @@ mkfifo "$FZFPIPE"
 trap 'rm "$FZFPIPE"' EXIT INT
 
 # Append Launcher History, removing usage count
-(printf '%s' "${HIST_LINES[@]#* }" >>"$FZFPIPE") &
+# (printf '%s' "${HIST_LINES[@]#* }" >>"$FZFPIPE") &
 
 # Iterate over providers and run their list-command
 for PROVIDER_NAME in "${!PROVIDERS[@]}"; do
@@ -275,11 +275,11 @@ readarray -t COMMAND_STR <<<$(
   fzf --ansi +s -x -d '\034' --nth ..3 --with-nth 3 \
     --print-query \
     --preview "$0 describe {2} {1}" \
-    --preview-window=up:2:noborder \
+    --preview-window=up:2\
     --no-multi --cycle \
     --prompt="${GLYPH_PROMPT->>> }" \
     --header='' --no-info --margin='1,2' \
-    --color='16,gutter:-1,prompt:13' \
+    --color='16,gutter:-1,prompt:13,bg+:-1' \
     <"$FZFPIPE"
 ) || exit 1
 # Get the last line of the fzf output. If there were no matches, it contains the query which we'll treat as a custom command

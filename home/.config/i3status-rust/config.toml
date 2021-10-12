@@ -49,21 +49,15 @@ format = ""
 # format = "🕪"
 
 [[block]]
-block = "custom"
-command=''' echo "do today's best" '''
-
-#[[block]]
-#block = "pomodoro"
-#length = 15
-#break_length = 7
-#message = "Time for break!"
-#break_message = "Time for work!"
-#use_nag = true
+block = "dnf"
+interval = 1800
+format ="{count}"
+icons_format = " ↑"
 
 [[block]]
 block = "net"
 device = "enp7s0"
-format = "{ip} (W) {graph_up} {graph_down}"
+format = "{ip} {graph_up} {graph_down}"
 interval = 3 
 icons_format = " "
 hide_inactive = true

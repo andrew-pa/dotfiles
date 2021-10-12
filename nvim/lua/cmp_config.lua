@@ -20,9 +20,9 @@ return function()
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.close(),
             ['<CR>'] = cmp.mapping.confirm({
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = true
-            })
+               behavior = cmp.ConfirmBehavior.Replace,
+               select = false
+           })
         },
 
         completion = {
@@ -31,6 +31,11 @@ return function()
             },
         },
 
-        preselect = cmp.PreselectMode.None
+        preselect = cmp.PreselectMode.Item,
+
+        experimental = {
+            native_menu = true,
+            ghost_text = true
+        }
     }
 end

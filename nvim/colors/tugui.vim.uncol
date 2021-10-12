@@ -17,7 +17,7 @@ hi Normal              guifg=~~!#fg! guibg=~~!#bg!
 hi Cursor              guifg=~~!#fg li+5!     guibg=~~!#red!
 hi CursorLine          guibg=~~!#highlight!     gui=NONE
 hi MatchParen          guifg=~~!#white! guibg=~~!#main-accent *0.4* bg!
-hi Pmenu               guifg=~~!#white!    guibg=~~!#$black!
+hi Pmenu               guifg=~~!#fg!    guibg=~~!#bg li-10 st-5!
 hi PmenuThumb          guibg=~~!#white!
 hi PmenuSBar           guibg=~~!#$black li+38!
 hi PmenuSel            guifg=~~!#$black!     guibg=~~!#main-accent st-20 li-20!

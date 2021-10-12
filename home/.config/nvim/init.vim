@@ -30,7 +30,7 @@ set titlestring=vim\ [%F\ %P]
 au FocusLost * silent! :wa
 
 au BufEnter *.rs silent! :RustSetInlayHints
-au FileType TelescopePrompt silent! call compe#setup({'enabled': v:false}, 0)
+au FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
 
 if exists('g:neovide')
     colorscheme tugui
