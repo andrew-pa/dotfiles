@@ -46,6 +46,8 @@ hi DiffAdd             guifg=~~!#$black!     guibg=~~!#green!
 hi DiffChange          guifg=~~!#$black!     guibg=~~!#yellow!
 hi DiffDelete          guifg=~~!#$black!     guibg=~~!#red!
 hi DiffText            guifg=~~!#$black!     guibg=~~!#yellow li+10 st+4!    gui=bold
+hi DiagnosticHint      guifg=~~!#green li-8!
+hi DiagnosticInfo      guifg=~~!#fg li+10!
 hi User1               guifg=~~!#red!     guibg=~~!#bg!
 hi User2               guifg=~~!#blue!     guibg=~~!#bg!
 hi User3               guifg=~~!#green!     guibg=~~!#bg!

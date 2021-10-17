@@ -10,6 +10,7 @@ return function()
             { name = "nvim_lua" },
             { name = "emoji" },
             { name = "latex_symbols" },
+            { name = "luasnip" }
         },
 
         mapping = {
@@ -31,11 +32,15 @@ return function()
             },
         },
 
-        preselect = cmp.PreselectMode.Item,
-
         experimental = {
             native_menu = true,
             ghost_text = true
+        },
+
+        snippet = {
+            expand = function(args)
+                require('luasnip').lsp_expand(args.body)
+            end
         }
     }
 end

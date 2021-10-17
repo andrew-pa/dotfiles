@@ -2,8 +2,14 @@
 return require('packer').startup(function()
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
-    use 'tomtom/tcomment_vim'
     use 'rust-lang/rust.vim'
+
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
     -- Language Server Protocol
     use { 
@@ -23,12 +29,14 @@ return require('packer').startup(function()
         end,
         after = 'nvim-cmp'
     }
+    use { 'L3MON4D3/LuaSnip' }
     use {
         'hrsh7th/nvim-cmp',
         requires = {
             'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path',
             'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-calc', 'hrsh7th/cmp-emoji',
-            'hrsh7th/cmp-calc', 'kdheepak/cmp-latex-symbols'
+            'hrsh7th/cmp-calc', 'kdheepak/cmp-latex-symbols',
+            'saadparwaiz1/cmp_luasnip'
         },
         config = require('cmp_config')
     }
