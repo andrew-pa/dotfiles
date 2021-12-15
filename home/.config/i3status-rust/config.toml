@@ -29,18 +29,18 @@ show_marks = "all"
 [[block]]
 block = "music"
 buttons = ["play", "next"]
-max_width = 40
+max_width = 60
 marquee_interval = 10
 marquee_speed = 0.2
 hide_when_empty = true
 format = "{artist}: {title}"
 dynamic_width = true
 
-[[block]]
-block = "bluetooth"
-mac = "38:18:4C:3E:17:6C"
-icons_format = " "
-format = ""
+# [[block]]
+# block = "bluetooth"
+# mac = "38:18:4C:3E:17:6C"
+# icons_format = " "
+# format = ""
 
 # [[block]]
 # block = "bluetooth"
@@ -51,13 +51,21 @@ format = ""
 [[block]]
 block = "dnf"
 interval = 1800
-format ="{count}"
-icons_format = " ↑"
+format ="↑ {count}"
+format_up_to_date = "-"
+icons_format = " "
+
+# [[block]]
+# block = "temperature"
+# collapsed = false
+# interval = 10
+# chip = "corsaircpro*"
+# inputs = ["temp1"]
 
 [[block]]
 block = "net"
 device = "enp7s0"
-format = "{ip} {graph_up} {graph_down}"
+format = "{ip} <span font_desc=\"Bars 6\">{graph_up}  {graph_down}</span>"
 interval = 3 
 icons_format = " "
 hide_inactive = true
@@ -65,7 +73,7 @@ hide_inactive = true
 [[block]]
 block = "net"
 device = "wlp4s0"
-format = "{ip} ({ssid} {signal_strength}) {graph_up} {graph_down}"
+format = "{ip} <span font_desc=\"Bars 6\">{graph_up}  {graph_down}</span> ({ssid} {signal_strength})"
 interval = 3 
 icons_format = " "
 hide_inactive = true
@@ -80,7 +88,7 @@ icons_format = " "
 [[block]]
 block = "cpu"
 interval = 3
-format = "{frequency} {barchart}"
+format = "{frequency} <span font_desc=\"Bars 6\">{barchart}</span>"
 icons_format = " "
 
 [[block]]

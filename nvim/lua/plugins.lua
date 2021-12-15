@@ -42,6 +42,12 @@ return require('packer').startup(function()
     }
     use {
         'rmagatti/goto-preview',
+        config = function()
+            require('goto-preview').setup {
+                width = 80,
+                height = 25
+            }
+        end,
         requires = 'neovim/nvim-lspconfig'
     }
     use { 'ray-x/lsp_signature.nvim' }
@@ -136,4 +142,10 @@ return require('packer').startup(function()
             }
         end
     }
+
+    -- use {
+    --     disable = true,
+    --     'mfussenegger/nvim-dap',
+    --     config = require('dap_config')
+    -- }
 end)

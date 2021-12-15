@@ -1,0 +1,21 @@
+# Winter 2022 colors
+
+white=l98c0h0
+red=l48c98h38
+green=l67c98h132
+yellow=l78c105h76
+blue=l50c70h280
+purple=l32c78h310
+cyan=l75c105h186
+
+bg=l0c0h310
+fg=white
+
+main-accent=purple li+20
+dark-gray=bg li+22 ch2
+med-gray=bg li+42 ch4
+light-gray=bg li+62 ch6
+
+highlight=fg li=10 st+5
+
+border=(main-accent li-15 st+20) *0.08* red

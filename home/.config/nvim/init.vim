@@ -38,7 +38,10 @@ else
     colorscheme noctu
 endif
 
-set guifont=Fira\ Code:h16
+" set guifont=Fira\ Code:h16
+set guifont=Ac437\ ToshibaSat\ 8x14:h19
 let g:neovide_cursor_animation_length=0.02
 let g:neovide_cursor_animate_command_line=0
+let g:neovide_floating_opacity=0.65
+let g:neovide_hide_mouse_when_typing=1
 

@@ -10,18 +10,20 @@ include ~/.config/sway/input_output.config
 
 ### Additional background processes
 exec swayidle -w \
-         timeout 1800 'swaylock -f' \
+         timeout 4800 'swaylock -f' \
          timeout 600 'swaymsg "output * dpms off"' \
             resume 'swaymsg "output * dpms on"'
 
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | \
     wob -acenter -abottom -M64 --background-color=~~!A#bg a26! --bar-color=~~!A#main-accent a87! --border-color=~~!A#dark-gray a93! -W512 -H40
 
-exec gammastep
+#exec gammastep
+exec playerctld daemon
 
 ### Key bindings
 ## open programs
 bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec firefox-wayland
 bindsym $mod+f exec kitty --class=launcher -e ~/config/sway-launcher-desktop.sh
 bindsym $mod+Shift+F1 exec pavucontrol
 bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png
@@ -172,7 +174,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 ### Appearance
-output * bg ~/config/background.png tile
+output * bg ~/Pictures/b.jpg fill
 seat seat0 xcursor_theme Bibata-Modern-Ice 32
 title_align center
 default_border pixel
@@ -186,7 +188,7 @@ client.unfocused ~~!a#dark-gray! ~~!a#dark-gray! ~~!a#fg st-62 li-15! ~~!a#dark-
 
 ### Apps that open at startup
 exec kitty --class=term_scratchpad
-for_window [app_id="term_scratchpad"] move scratchpad
+for_window [app_id="term_scratchpad"] floating enable, sticky enable, resize set 80 ppt 50 ppt, border pixel 8, move position center, move scratchpad
 
 exec flatpak run com.discordapp.Discord
 for_window [class="discord"] move window to workspace side-monitor
@@ -196,7 +198,7 @@ exec flatpak run im.riot.Riot
 for_window [class="Element"] move window to workspace side-monitor
 for_window [class="Element"] mark --add "T"
 
-exec flatpak run com.spotify.Client
+exec spotify
 for_window [class="Spotify"] move window to workspace 11
 for_window [class="Spotify"] mark --add "S"
 
