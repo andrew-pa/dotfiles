@@ -15,6 +15,8 @@ music = "♫"
 music_play = "▷"
 music_pause = "🞐"
 music_next = "➟"
+toggle_on = ""
+toggle_off = "x"
 
 [[block]]
 block = "focused_window"
@@ -47,6 +49,13 @@ dynamic_width = true
 # mac = "A9:9A:BA:01:A4:6A"
 # icons_format = " "
 # format = "🕪"
+
+[[block]]
+block = "toggle"
+text = "🕭"
+command_off  = "makoctl set-mode do-not-disturb"
+command_on = "makoctl set-mode default"
+command_state = "echo 1"
 
 [[block]]
 block = "dnf"

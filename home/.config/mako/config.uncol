@@ -16,3 +16,5 @@ margin=32
 [category=mpd]
 default-timeout=7000
 
+[mode=do-not-disturb]
+invisible=1

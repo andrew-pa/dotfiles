@@ -19,6 +19,7 @@ exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | \
 
 #exec gammastep
 exec playerctld daemon
+exec sway-audio-idle-inhibit
 
 ### Key bindings
 ## open programs
@@ -179,7 +180,7 @@ seat seat0 xcursor_theme Bibata-Modern-Ice 32
 title_align center
 default_border pixel
 default_floating_border normal
-font Fira Code 12
+font Inconsolata 12
 gaps inner 8
 gaps outer 6
 client.focused ~~!a#main-accent! ~~!a#main-accent! ~~!a#bg! ~~!a#main-accent li-20 st+5!
@@ -226,7 +227,7 @@ bar {
     output HDMI-A-1
     tray_output DP-3
 
-    font Fira Code Retina 15
+    font Inconsolata 15
     status_edge_padding 4
     tray_padding 4
     gaps 5 196
