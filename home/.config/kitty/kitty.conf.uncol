@@ -9,6 +9,7 @@ map ctrl+enter launch --cwd=current --type=os-window --copy-env
 background ~~!#bg!
 foreground ~~!#fg!
 cursor ~~!#fg li+8 st+8!
+cursor_shape block
 
 color0 ~~!#$black!
 color1 ~~!#red!

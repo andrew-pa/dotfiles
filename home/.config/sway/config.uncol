@@ -19,12 +19,12 @@ exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | \
 
 #exec gammastep
 exec playerctld daemon
-exec sway-audio-idle-inhibit
+#exec sway-audio-idle-inhibit
 
 ### Key bindings
 ## open programs
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec firefox-wayland
+bindsym $mod+t exec firefox-wayland
 bindsym $mod+f exec kitty --class=launcher -e ~/config/sway-launcher-desktop.sh
 bindsym $mod+Shift+F1 exec pavucontrol
 bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png
@@ -39,8 +39,8 @@ bindsym $mod+F1 exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+
 #    control room lights
 bindsym $mod+F12 exec /home/andrew/.cargo/bin/lifxctl 4 "Pit=toggle"
 #    control Spotify
-bindsym $mod+F4 exec /home/andrew/.local/bin/sp next
-bindsym $mod+F5 exec /home/andrew/.local/bin/sp play
+bindsym $mod+F4 exec playerctl next
+bindsym $mod+F5 exec playerctl play-pause
 #    manually control monitors
 bindsym $mod+Shift+y exec swaymsg "output * dpms off"
 bindsym $mod+Shift+t exec swaymsg "output * dpms on"
@@ -215,6 +215,9 @@ for_window [title="Magma.*"] floating enable
 
 # configure launcher terminal
 for_window [app_id="launcher"] floating enable, sticky enable, resize set 50 ppt 40 ppt, border pixel 8
+
+# prevent idle when apps are fullscreen
+for_window [title=".*"] inhibit_idle fullscreen
 
 ### Status bar
 bar {
