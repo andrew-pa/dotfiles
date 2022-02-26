@@ -10,7 +10,8 @@ return function()
             { name = "nvim_lua" },
             { name = "emoji" },
             { name = "latex_symbols" },
-            { name = "luasnip" }
+            { name = "luasnip" },
+            { name = "nvim_lsp_signature_help" }
         },
 
         mapping = {
@@ -38,4 +39,10 @@ return function()
             end
         }
     }
+
+    cmp.setup.filetype("toml", {
+        sources = {
+            { name = "crates" }
+        }
+    })
 end
