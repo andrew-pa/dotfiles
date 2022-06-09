@@ -33,7 +33,6 @@ return function()
         },
 
         experimental = {
-            native_menu = true,
             ghost_text = true
         },
 

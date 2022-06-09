@@ -1,7 +1,12 @@
+local M = {}
 
-return function()
-    local function keymap(...) vim.api.nvim_set_keymap(...) end
+M.project_files = function()
+    local opts = {}
+    local ok = pcall(require"telescope.builtin".git_files, opts)
+    if not ok then require"telescope.builtin".find_files(opts) end
+end
 
+M.config = function()
     local actions = require('telescope.actions')
 
     require('telescope').setup {
@@ -14,12 +19,15 @@ return function()
         }
     }
 
+    require('telescope').load_extension('ui-select')
+    require('telescope').load_extension('fzf')
+
     local opts = { noremap = true, silent = true }
-    keymap('n', '<leader>f', '<cmd>Telescope find_files<cr>', opts)
-    keymap('n', '<leader>ff', '<cmd>Telescope git_files<cr>', opts)
-    keymap('n', '<leader>F', '<cmd>Telescope file_browser<cr>', opts)
-    keymap('n', '<leader>b', '<cmd>Telescope buffers<cr>', opts)
-    keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
-    keymap('n', '<leader>S', '<cmd>Telescope treesitter<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua require("telescope_config").project_files()<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>S', '<cmd>Telescope treesitter<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>D', '<cmd>Telescope diagnostics<cr>', opts)
 end
 
+return M

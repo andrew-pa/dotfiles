@@ -16,7 +16,7 @@ return require('packer').startup(function()
         'neovim/nvim-lspconfig',
         config = function()
             local lsp = require('lspconfig')
-            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp" }
+            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp", "erlangls" }
             local on_attach = require('lsp_attach')
             local caps = vim.lsp.protocol.make_client_capabilities()
             -- caps = require('cmp_nvim_lsp').update_capabilities(caps)
@@ -76,7 +76,8 @@ return require('packer').startup(function()
         run = ':TSUpdate',
         config = function()
             require('nvim-treesitter.configs').setup {
-                ensure_installed = 'maintained',
+                ensure_installed = 'all',
+                ignore_install =  { 'phpdoc' },
                 highlight = { enable = true },
                 indent = { enabled = true },
                 incremental_selection = {
@@ -118,10 +119,10 @@ return require('packer').startup(function()
         end
     }
     use {
-        'romgrk/nvim-treesitter-context',
+        'nvim-treesitter/nvim-treesitter-context',
         requires = {'nvim-treesitter/nvim-treesitter'},
         config = function()
-            require('treesitter-context.config').setup { enable = true }
+            require('treesitter-context').setup { enable = true }
         end
     }
 
@@ -131,11 +132,17 @@ return require('packer').startup(function()
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-        config = require('telescope_config')
+        config = require('telescope_config').config
+    }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     }
 
     use {
         'winston0410/mark-radar.nvim',
+        disable = true,
         config = function()
             require('mark-radar').setup {
                 highlight_group = "IncSearch"
