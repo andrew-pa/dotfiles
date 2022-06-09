@@ -10,7 +10,8 @@ return function()
             { name = "nvim_lua" },
             { name = "emoji" },
             { name = "latex_symbols" },
-            { name = "luasnip" }
+            { name = "luasnip" },
+            { name = "nvim_lsp_signature_help" }
         },
 
         mapping = {
@@ -32,14 +33,16 @@ return function()
             },
         },
 
-        experimental = {
-            ghost_text = true
-        },
-
         snippet = {
             expand = function(args)
                 require('luasnip').lsp_expand(args.body)
             end
         }
     }
+
+    cmp.setup.filetype("toml", {
+        sources = {
+            { name = "crates" }
+        }
+    })
 end

@@ -36,7 +36,7 @@ return require('packer').startup(function()
             'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path',
             'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-calc', 'hrsh7th/cmp-emoji',
             'hrsh7th/cmp-calc', 'kdheepak/cmp-latex-symbols',
-            'saadparwaiz1/cmp_luasnip'
+            'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-nvim-lsp-signature-help'
         },
         config = require('cmp_config')
     }
@@ -147,6 +147,15 @@ return require('packer').startup(function()
             require('mark-radar').setup {
                 highlight_group = "IncSearch"
             }
+        end
+    }
+
+    use {
+        'saecki/crates.nvim',
+        tag = 'v0.1.0',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('crates').setup()
         end
     }
 
