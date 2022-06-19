@@ -4,4 +4,4 @@ RequiresMountsFor=/mnt/jeff/
 
 [Service]
 Type=oneshot
-ExecStart=/home/andrew/config/backup.sh
+ExecStart=/home/andrew/config/scripts/backup.sh
