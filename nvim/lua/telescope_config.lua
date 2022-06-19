@@ -30,6 +30,8 @@ M.config = function()
     vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>Telescope live_grep<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>S', '<cmd>Telescope treesitter<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>D', '<cmd>Telescope diagnostics<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>m', '<cmd>Telescope marks<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>j', '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
 end
 
 return M
