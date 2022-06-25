@@ -119,6 +119,20 @@ return require('packer').startup(function()
         end
     }
     use {
+        'drybalka/tree-climber.nvim',
+        requires = { 'nvim-treesitter/nvim-treesitter' },
+        config = function()
+            local keyopts = { noremap = true, silent = true }
+            local tc = require('tree-climber')
+            vim.keymap.set({'n', 'v', 'o'}, '<C-j>k', tc.goto_parent, keyopts)
+            vim.keymap.set({'n', 'v', 'o'}, '<C-j>j', tc.goto_child, keyopts)
+            vim.keymap.set({'n', 'v', 'o'}, '<C-j>h', tc.goto_prev, keyopts)
+            vim.keymap.set({'n', 'v', 'o'}, '<C-j>l', tc.goto_next, keyopts)
+            vim.keymap.set('n', '<C-j>H', tc.swap_prev, keyopts)
+            vim.keymap.set('n', '<C-j>L', tc.swap_next, keyopts)
+        end
+    }
+    use {
         'nvim-treesitter/nvim-treesitter-context',
         requires = {'nvim-treesitter/nvim-treesitter'},
         config = function()
