@@ -38,7 +38,11 @@ alias gitlogg='git log --oneline --graph'
 alias less='less -R'
 
 mkdir -p /tmp/logs/
-alias plog='less -R -O "/tmp/logs/$(pwd | tr [:punct:] _)@$(git branch --show-current | tr / -).$(date)"'
+function plog() {
+    LOG_PATH="/tmp/logs/$(pwd | tr [:punct:] _)@$(git branch --show-current | tr / -).$(date)"
+    ln -sv /tmp/logs/last "$LOG_PATH"
+    $* | less -R -O "$LOG_PATH"
+}
 
 #alias wvim='kitty --detach nvim'
 function wvim() { command neovide --multigrid $*; }
