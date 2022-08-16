@@ -32,8 +32,8 @@ hi CursorLineNr        guifg=~~!#main-accent!    guibg=~~!#bg!
 hi Visual              guibg=~~!#highlight!
 hi IncSearch           guifg=~~!#$black!     guibg=~~!#main-accent li+10 st+4!    gui=NONE
 hi Search              guifg=~~!#white!     guibg=~~!#dark-gray!
-hi StatusLine          guifg=~~!#white li-5 st+10!     guibg=~~!#bg li-65 st-5!     gui=bold
-hi StatusLineNC        guifg=~~!#med-gray!     guibg=~~!#bg li+3 st+20!     gui=NONE
+hi StatusLine          guifg=~~!#white li-5 st+10!     guibg=~~!#bg li+6 st+20!     gui=bold
+hi StatusLineNC        guifg=~~!#med-gray!     guibg=~~!#bg li+3 st+10!     gui=NONE
 hi VertSplit           guifg=~~!#$black!     guibg=~~!#main-accent li-62 st-85!     gui=NONE
 hi TabLine             guifg=~~!#$black li+38!     guibg=~~!#$black!     gui=NONE
 hi TabLineSel          guifg=~~!#white!     guibg=~~!#$black!
@@ -67,8 +67,26 @@ hi! link Question      MoreMsg
 hi! link ModeMsg       MoreMsg
 hi! link TabLineFill   StatusLineNC
 hi! link SpecialKey    NonText
-
 "}}}
+
+" Plugin Setup {{{
+highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=~~!#dark-gray!
+
+highlight! CmpItemAbbrMatch guibg=NONE guifg=~~!#light-gray!
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=~~!#yellow!
+
+highlight! CmpItemKindVariable guibg=NONE guifg=~~!#med-gray!
+highlight! CmpItemKindInterface guibg=NONE guifg=~~!#blue!
+highlight! CmpItemKindText guibg=NONE guifg=~~!#med-gray!
+
+highlight! CmpItemKindFunction guibg=NONE guifg=~~!#purple!
+highlight! CmpItemKindMethod guibg=NONE guifg=~~!#purple li+1 *0.3* blue!
+
+highlight! CmpItemKindKeyword guibg=NONE guifg=~~!#green!
+highlight! CmpItemKindProperty guibg=NONE guifg=~~!#green!
+highlight! CmpItemKindUnit guibg=NONE guifg=~~!#green!
+"}}}
+
 " Generic syntax {{{
 hi Delimiter       guifg=~~!#fg li+10 st-50!
 hi Comment         guifg=~~!#fg li-10!
