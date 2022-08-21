@@ -1,0 +1,8 @@
+background.png
+home/.config/sway/input_output.config
+home/.config/sway/config
+home/.config/mako/config
+home/.config/kitty/kitty.conf
+home/.config/swaylock/config
+home/.config/i3status-rust/theme.toml
+nvim/colors/tugui.vim
