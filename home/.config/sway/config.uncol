@@ -180,7 +180,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 ### Appearance
-output * bg ~/Pictures/b.jpg fill
+output * bg ~/config/background.png fill
 seat seat0 xcursor_theme Bibata-Modern-Ice 32
 title_align center
 default_border pixel

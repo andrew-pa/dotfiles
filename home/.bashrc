@@ -33,7 +33,7 @@ else
 fi
 alias vim='nvim'
 alias wndmn='kitty --detach nodemon'
-alias gitlog='git log --oneline'
+alias gitlog='git log --oneline -n20'
 alias gitlogg='git log --oneline --graph'
 alias less='less -R'
 
