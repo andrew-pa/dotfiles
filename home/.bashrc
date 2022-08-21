@@ -25,7 +25,7 @@ if type -P exa &>/dev/null; then
     exa_options="--long --all --classify --binary"
     alias lsl="exa -1 $exa_options"
     alias ls='exa --grid $exa_options'
-    alias lst="exa -T --git-ignore $exa_options"
+    alias lst="exa -T $exa_options"
 else
     alias ls='ls --color=auto -a -l -h'
     alias lsl='ls'
@@ -35,10 +35,20 @@ alias vim='nvim'
 alias wndmn='kitty --detach nodemon'
 alias gitlog='git log --oneline'
 alias gitlogg='git log --oneline --graph'
+alias less='less -R'
+
+mkdir -p /tmp/logs/
+function plog() {
+    LOG_PATH="/tmp/logs/$(pwd | tr [:punct:] _)@$(git branch --show-current | tr / -).$(date)"
+    ln -sv /tmp/logs/last "$LOG_PATH"
+    $* | less -R -O "$LOG_PATH"
+}
+
 #alias wvim='kitty --detach nvim'
 function wvim() { command neovide --multigrid $*; }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi

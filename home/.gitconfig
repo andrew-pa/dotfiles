@@ -1,7 +1,10 @@
 [user]
-	email = andrew.pa@outlook.com
-	name = andrew-pa
+	email = andrew.palmer@dart.software
+	name = Andrew Palmer
 [receive]
 	denyCurrentBranch = warn
 [core]
 	excludesFile = ~/.gitignore
+[safe]
+	directory = /home/andrew/Source/neovim
+	directory = /home/andrew/Source/neovim

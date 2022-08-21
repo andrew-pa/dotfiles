@@ -1,0 +1,21 @@
+# Summer 2022 colors at work
+
+white=l98c0h0
+red=l50c95h45
+green=l73c98h126
+yellow=l75c108h72
+blue=l49c70h282
+purple=l41c88h332
+cyan=l75c105h186
+
+bg=l0c0h72
+fg=yellow li=95 ch10
+
+main-accent=yellow li+22
+dark-gray=bg li+22 ch2
+med-gray=bg li+42 ch4
+light-gray=bg li+62 ch6
+
+highlight=bg li=15 st+10
+
+border=(main-accent li-15 st+20) *0.08* red

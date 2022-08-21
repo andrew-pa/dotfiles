@@ -13,7 +13,9 @@ M.config = function()
         defaults = {
             mappings = {
                 i = {
-                    [ "<esc>" ] = actions.close
+                    [ "<esc>" ] = actions.close,
+                    [ "<C-j>" ] = actions.move_selection_better,
+                    [ "<C-k>" ] = actions.move_selection_worse,
                 }
             }
         }
@@ -23,11 +25,14 @@ M.config = function()
     require('telescope').load_extension('fzf')
 
     local opts = { noremap = true, silent = true }
-    vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua require("telescope_config").project_files()<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua require("telescope_config").project_files()<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<cr>', opts)
-    vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>Telescope live_grep<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>S', '<cmd>Telescope treesitter<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>D', '<cmd>Telescope diagnostics<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>m', '<cmd>Telescope marks<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>j', '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>G', '<cmd>Telescope git_status<cr>', opts)
 end
 
 return M
