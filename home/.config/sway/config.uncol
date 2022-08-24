@@ -188,6 +188,8 @@ default_floating_border normal
 font Inconsolata 12
 gaps inner 8
 gaps outer 6
+smart_gaps on
+smart_borders on
 client.focused ~~!a#main-accent! ~~!a#main-accent! ~~!a#bg! ~~!a#main-accent li-20 st+5!
 client.focused_inactive ~~!a#dark-gray! ~~!a#med-gray! ~~!a#fg st-62! ~~!a#dark-gray li+20 st+5!
 client.unfocused ~~!a#dark-gray! ~~!a#dark-gray! ~~!a#fg st-62 li-15! ~~!a#dark-gray li+20 st+5!
