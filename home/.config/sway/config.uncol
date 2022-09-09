@@ -149,6 +149,8 @@ bindsym $mod+Alt+7 workspace 17
 bindsym $mod+Alt+8 workspace 18
 bindsym $mod+Alt+9 workspace 19
 bindsym $mod+Alt+0 workspace 20
+bindsym $mod+Ctrl+1 workspace side-monitor
+bindsym $mod+Ctrl+2 workspace side-monitor'
 #    move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -207,7 +209,7 @@ for_window [class="Element"] move window to workspace side-monitor
 for_window [class="Element"] mark --add "T"
 
 exec spotify
-for_window [class="Spotify"] move window to workspace 11
+for_window [class="Spotify"] move window to workspace "side-monitor'"
 for_window [class="Spotify"] mark --add "S"
 
 exec evolution
@@ -228,7 +230,7 @@ for_window [title=".*"] inhibit_idle fullscreen
 
 ### Status bar
 bar {
-    status_command /home/andrew/.cargo/bin/i3status-rs
+    status_command i3status-rs
     position top
     mode hide
     output DP-1
