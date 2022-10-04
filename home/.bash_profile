@@ -7,6 +7,8 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     fi
 fi
 
+. ~/.profile
+
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
