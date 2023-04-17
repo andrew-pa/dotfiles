@@ -1,0 +1,21 @@
+# Summer 2023 colors
+
+white=l96c6h90
+red=l51c96h43
+green=l73c99h129
+yellow=l78c105h76
+blue=l60c70h270
+purple=l54c85h306
+cyan=l65c94h191
+
+bg=l0c1h90
+fg=white
+
+main-accent=(yellow li-5 st+10)
+dark-gray=bg li+22 ch4
+med-gray=bg li+42 ch10
+light-gray=bg li+62 ch12
+
+highlight=fg li=10 st+5
+
+border=(main-accent li-25 st+20) *0.08* red
