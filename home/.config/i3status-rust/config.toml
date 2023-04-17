@@ -1,9 +1,10 @@
 
 [theme]
-name = "/home/andrew/.config/i3status-rust/theme.toml"
+theme = "/home/andrew/.config/i3status-rust/theme.toml"
 
 [icons]
-name = "none"
+icons = "none"
+
 [icons.overrides]
 headphones = "🤆"
 uptime = "⧗"
@@ -20,8 +21,7 @@ toggle_off = "x"
 
 [[block]]
 block = "focused_window"
-max_width = 64
-show_marks = "all"
+format = "$title.str(max_w:64) $marks"
 
 #[[block]]
 #block = "custom"
@@ -30,13 +30,7 @@ show_marks = "all"
 
 [[block]]
 block = "music"
-buttons = ["play", "next"]
-max_width = 60
-marquee_interval = 10
-marquee_speed = 0.2
-hide_when_empty = true
-format = "{artist}: {title}"
-dynamic_width = true
+format = "$combo.str(max_w:60) $play"
 
 # [[block]]
 # block = "bluetooth"
@@ -49,13 +43,6 @@ dynamic_width = true
 # mac = "A9:9A:BA:01:A4:6A"
 # icons_format = " "
 # format = "🕪"
-
-[[block]]
-block = "toggle"
-text = "🕭"
-command_off  = "makoctl set-mode do-not-disturb"
-command_on = "makoctl set-mode default"
-command_state = "echo 1"
 
 [[block]]
 block = "dnf"
@@ -77,7 +64,6 @@ device = "enp7s0"
 format = "{ip} <span font_desc=\"Bars 6\">{graph_up}  {graph_down}</span>"
 interval = 3 
 icons_format = " "
-hide_inactive = true
 
 [[block]]
 block = "net"
@@ -85,13 +71,11 @@ device = "wlp4s0"
 format = "{ip} <span font_desc=\"Bars 6\">{graph_up}  {graph_down}</span> ({ssid} {signal_strength})"
 interval = 3 
 icons_format = " "
-hide_inactive = true
 
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_used;K} {mem_used_percents}"
+format = "{mem_used;K} {mem_used_percents}"
 icons_format = " "
 
 [[block]]

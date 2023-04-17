@@ -86,6 +86,7 @@ bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 bindsym $mod+Shift+f fullscreen
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+backslash sticky toggle
 #    window scratchpad area
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
@@ -230,28 +231,7 @@ for_window [title=".*"] inhibit_idle fullscreen
 
 ### Status bar
 bar {
-    status_command i3status-rs
-    position top
+    swaybar_command waybar
     mode hide
-    output DP-1
-    output DP-2
-    output DP-3
-    output HDMI-A-1
-    tray_output DP-3
-
-    font Inconsolata 15
-    status_edge_padding 4
-    tray_padding 4
-    gaps 5 196
-    wrap_scroll on
-
-    colors {
-        statusline ~~!a#fg!
-        background ~~!a#dark-gray a93!
-        focused_workspace ~~!a#main-accent li-10! ~~!a#main-accent! ~~!a#bg!
-        urgent_workspace ~~!a#purple li-10! ~~!a#purple! ~~!a#bg!
-        active_workspace ~~!a#med-gray li-10 a93! ~~!a#med-gray a93! ~~!a#fg!
-        inactive_workspace ~~!a#med-gray li-10 a93! ~~!a#med-gray a93! ~~!a#fg li-20!
-    }
 }
 include /etc/sway/config.d/*

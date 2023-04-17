@@ -2,6 +2,7 @@
 # terminal application launcher for sway, using fzf
 # Based on: https://gitlab.com/FlyingWombat/my-scripts/blob/master/sway-launcher
 # https://gist.github.com/Biont/40ef59652acf3673520c7a03c9f22d2a
+source ~/.bashrc
 shopt -s nullglob globstar
 set -o pipefail
 if ! { exec 0>&3; } 1>/dev/null 2>&1; then

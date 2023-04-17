@@ -27,3 +27,6 @@ fi
 alias vim='nvim'
 alias gitlog='git log --oneline'
 alias gitlogg='git log --oneline --graph'
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
