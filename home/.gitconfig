@@ -8,3 +8,6 @@
 [safe]
 	directory = /home/andrew/Source/neovim
 	directory = /home/andrew/Source/neovim
+	directory = /mnt/w/Users/andre/Source/qrch
+[push]
+	autoSetupRemote = true
