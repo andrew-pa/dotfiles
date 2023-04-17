@@ -1,0 +1,51 @@
+* {
+    font-family: Inconsolata;
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: ~~!$bg!;
+    border: 2px solid ~~!$dark-gray!;
+    color: ~~!$fg!;
+    border-radius: 12px;
+}
+
+#workspaces {
+    margin-left: 16px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: ~~!$light-gray!;
+    border-radius: 0px;
+}
+
+#workspaces button:hover {
+    border: inherit;
+    background: ~~!$bg!;
+    color: ~~!$fg!;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    padding: 0 5px;
+}
+
+#workspaces button.focused {
+    color: ~~!$fg!;
+    border: 1px solid ~~!$main-accent st-15 li-25!;
+}
+
+#workspaces button.urgent {
+    background-color: ~~!$red!;
+}
+
+.modules-right {
+    margin-right: 16px;
+}
+
+.modules-right * {
+    margin-left: 0.5em;
+}
+
+.modules-center image {
+    margin: 2px;
+}
