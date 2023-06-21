@@ -16,7 +16,7 @@ return require('packer').startup(function()
         'neovim/nvim-lspconfig',
         config = function()
             local lsp = require('lspconfig')
-            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp", "erlangls", "gopls", "denols", "pyright" }
+            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp", "erlangls", "gopls", "denols", "pyright", "racket_langserver" }
             local on_attach = require('lsp_attach')
             local caps = vim.lsp.protocol.make_client_capabilities()
             -- caps = require('cmp_nvim_lsp').update_capabilities(caps)
@@ -173,6 +173,10 @@ return require('packer').startup(function()
             require('crates').setup()
         end
     }
+
+    -- Racket stuff
+    use { 'benknoble/vim-sexp' }
+    use { 'junegunn/rainbow_parentheses.vim' }
 
     -- use {
     --     disable = true,
