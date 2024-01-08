@@ -16,7 +16,7 @@ return require('packer').startup(function()
         'neovim/nvim-lspconfig',
         config = function()
             local lsp = require('lspconfig')
-            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp", "erlangls", "gopls", "denols", "pyright", "racket_langserver" }
+            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp", "erlangls", "gopls", "pyright", "racket_langserver", "hls" }
             local on_attach = require('lsp_attach')
             local caps = vim.lsp.protocol.make_client_capabilities()
             -- caps = require('cmp_nvim_lsp').update_capabilities(caps)

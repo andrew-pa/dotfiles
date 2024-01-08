@@ -1,5 +1,5 @@
 font_family Inconsolata
-font_size 14.0
+font_size 16.0
 linux_display_server wayland
 macos_option_as_alt yes
 dynamic_background_opacity yes
@@ -31,7 +31,7 @@ color13 ~~!#purple li+10 st+4!
 color14 ~~!#cyan li+10 st+4!
 color15 ~~!#white li+10 st+4!
 
-enable_layouts splits:split_axis=vertical
+enable_layout splits:split_axis=vertical
 
 # Create a new window splitting the space used by the existing one so that
 # the two windows are placed one above the other
@@ -50,25 +50,11 @@ map f4 launch --location=split
 # horizontal or vice versa
 map f7 layout_action rotate
 
-map alt+tab launch --type overlay-main --cwd current --copy-env --title "popup"
-
-# Move the active window in the indicated direction
-map alt+shift+k move_window up
-map alt+shift+h move_window left
-map alt+shift+l move_window right
-map alt+shift+j move_window down
-
 # Move the active window to the indicated screen edge
 map ctrl+shift+up layout_action move_to_screen_edge top
 map ctrl+shift+left layout_action move_to_screen_edge left
 map ctrl+shift+right layout_action move_to_screen_edge right
 map ctrl+shift+down layout_action move_to_screen_edge bottom
-
-# Switch focus to the neighboring window in the indicated direction
-map alt+h neighboring_window left
-map alt+l neighboring_window right
-map alt+k neighboring_window up
-map alt+j neighboring_window down
 
 map alt+s focus_visible_window
 map alt+shift+S swap_with_window

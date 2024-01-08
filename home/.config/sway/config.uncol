@@ -90,7 +90,7 @@ bindsym $mod+backslash sticky toggle
 #    window scratchpad area
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-bindsym $mod+grave exec swaymsg [app_id="term_scratchpad"] scratchpad show # open the scratch terminal
+bindsym $mod+tab exec swaymsg "[app_id="term_scratchpad"] scratchpad show"
 #    resizing windows/containers
 mode "resize" {
     bindsym $right resize shrink width 10px
@@ -188,9 +188,9 @@ seat seat0 xcursor_theme Bibata-Modern-Ice 32
 title_align center
 default_border pixel
 default_floating_border normal
-font Inconsolata 12
-gaps inner 8
-gaps outer 6
+font Inconsolata 10
+gaps inner 2
+gaps outer 4
 smart_gaps on
 smart_borders on
 client.focused ~~!a#main-accent! ~~!a#main-accent! ~~!a#bg! ~~!a#main-accent li-20 st+5!
