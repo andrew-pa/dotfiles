@@ -1,6 +1,0 @@
-{
-    "rust-analyzer.inlayHints.typeHintsSeparator": "> ",
-    "rust-analyzer.inlayHints.chainingHintsSeparator": "| ",
-    "clangd.semanticHighlighting": true,
-    "clangd.path": "/home/andrew/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd"
-}
