@@ -12,6 +12,8 @@ export PROMPT="
 export RUST_BACKTRACE=1
 export EDITOR=nvim
 
+export PATH="$PATH:/Applications/Racket v8.8/bin"
+
 if type -p exa &>/dev/null; then
     export EXA_COLORS="da=38;5;8:uu=33"
     exa_options="--long --all --classify --binary"
@@ -30,3 +32,19 @@ alias gitlogg='git log --oneline --graph'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/andrew/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/andrew/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/andrew/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/andrew/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

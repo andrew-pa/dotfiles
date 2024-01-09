@@ -33,11 +33,11 @@ au BufEnter *.rs silent! :RustSetInlayHints
 au FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
 au FileType lisp,scheme,racket RainbowParentheses
 
-if exists('g:neovide')
+" if exists('g:neovide')
     colorscheme tugui
-else
-    colorscheme noctu
-endif
+" else
+    " colorscheme noctu
+" endif
 
 " set guifont=Fira\ Code:h16
 " set guifont=Ac437\ ToshibaSat\ 8x14:h19

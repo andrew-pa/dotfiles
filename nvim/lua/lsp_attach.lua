@@ -35,8 +35,11 @@ return function(client, bufnr)
         keymap('n', '<Leader>T', '<C-w>v<C-w>l<cmd>ClangdSwitchSourceHeader<CR>', opts)
     end
 
-    require('lsp_signature').on_attach {
+    require('lsp_signature').on_attach({
         hint_enable = false,
-        extra_trigger_chars = {"{"}
-    }
+        extra_trigger_chars = {"{"},
+        toggle_key = '<C-q>',
+        select_signature_key = '<C-e>',
+        close_timeout = 500
+    }, bufnr)
 end

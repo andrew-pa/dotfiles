@@ -16,7 +16,7 @@ let g:colors_name = "noctu"
 
 "}}}
 " Vim UI {{{
-"hi Normal              ctermfg=0
+hi Normal              ctermbg=0
 hi Cursor              ctermfg=7     ctermbg=1
 "hi CursorLine          ctermbg=0     cterm=NONE
 "hi MatchParen          ctermfg=7     ctermbg=NONE  cterm=underline

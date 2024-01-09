@@ -5,12 +5,12 @@ return function()
     cmp.setup {
         sources = {
             { name = "nvim_lsp" },
+            { name = "lua-latex-symbols" },
+            { name = "emoji" },
             { name = "buffer" },
             { name = "path" },
             { name = "calc" },
             { name = "nvim_lua" },
-            { name = "emoji" },
-            { name = "latex_symbols" },
             { name = "luasnip" },
             { name = "nvim_lsp_signature_help" }
         },
@@ -42,6 +42,10 @@ return function()
             ['<C-e>'] = cmp.mapping.close(),
             ['<CR>'] = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace,
+                select = false
+            }),
+            ['<S-CR>'] = cmp.mapping.confirm({
+                behavior = cmp.ConfirmBehavior.Insert,
                 select = false
             })
         },

@@ -16,10 +16,10 @@ return require('packer').startup(function()
         'neovim/nvim-lspconfig',
         config = function()
             local lsp = require('lspconfig')
-            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp", "erlangls", "gopls", "pyright", "racket_langserver", "hls" }
+            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp", "erlangls", "gopls", "hls", "pyright", "racket_langserver" }
             local on_attach = require('lsp_attach')
             local caps = vim.lsp.protocol.make_client_capabilities()
-            -- caps = require('cmp_nvim_lsp').update_capabilities(caps)
+            caps = require('cmp_nvim_lsp').default_capabilities(caps)
             for _, server_name in ipairs(servers) do
                 lsp[server_name].setup {
                     on_attach = on_attach,
@@ -35,7 +35,7 @@ return require('packer').startup(function()
         requires = {
             'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path',
             'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-calc', 'hrsh7th/cmp-emoji',
-            'hrsh7th/cmp-calc', 'kdheepak/cmp-latex-symbols',
+            'hrsh7th/cmp-calc', 'amarakon/nvim-cmp-lua-latex-symbols',
             'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-nvim-lsp-signature-help'
         },
         config = require('cmp_config')
@@ -174,9 +174,13 @@ return require('packer').startup(function()
         end
     }
 
+<<<<<<< HEAD
     -- Racket stuff
     use { 'benknoble/vim-sexp' }
     use { 'junegunn/rainbow_parentheses.vim' }
+=======
+    use { 'benknoble/vim-sexp' }
+>>>>>>> d3c916e (macbook tweaks and changes)
 
     -- use {
     --     disable = true,

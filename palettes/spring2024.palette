@@ -1,0 +1,21 @@
+# Spring 2024 colors
+
+white=l96c6h200
+red=l61c105h33
+green=l73c90h140
+yellow=l85c70h75
+blue=l60c120h280
+purple=l60c95h300
+cyan=l85c124h180
+
+bg=l0c6h150
+fg=~white
+
+main-accent=(cyan *0.5* white) li-8
+dark-gray=bg li+12 ch8
+med-gray=bg li+32 ch10
+light-gray=bg li+52 ch12
+
+highlight=fg li=10 st+5
+
+border=(~main-accent *0.25* yellow) li-20
