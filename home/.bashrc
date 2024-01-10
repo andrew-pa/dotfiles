@@ -20,12 +20,12 @@ export MOZ_ENABLE_WAYLAND=1
 export RUST_BACKTRACE=1
 export EDITOR=nvim
 
-if type -P exa &>/dev/null; then
+if type -P eza &>/dev/null; then
     export EXA_COLORS="da=38;5;8:uu=33"
-    exa_options="--long --all --classify --binary"
-    alias lsl="exa -1 $exa_options"
-    alias ls='exa --grid $exa_options'
-    alias lst="exa -T $exa_options"
+    eza_options="--long --all --classify --binary"
+    alias lsl="eza -1 $eza_options"
+    alias ls='eza --grid $eza_options'
+    alias lst="eza -T $eza_options"
 else
     alias ls='ls --color=auto -a -l -h'
     alias lsl='ls'
@@ -45,7 +45,7 @@ function plog() {
 }
 
 #alias wvim='kitty --detach nvim'
-function wvim() { command neovide --multigrid $*; }
+function wvim() { command neovide $*; }
 
 [ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
 

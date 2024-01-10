@@ -5,4 +5,6 @@ home/.config/mako/config
 home/.config/kitty/kitty.conf
 home/.config/swaylock/config
 home/.config/i3status-rust/theme.toml
+home/.config/waybar/style.css
+home/.config/dunst/dunstrct
 nvim/colors/tugui.vim

@@ -8,14 +8,18 @@ set $right l
 # load configuration for input/output
 include ~/.config/sway/input_output.config
 
+input "type:keyboard" {
+    xkb_options caps:escape
+}
+
 ### Additional background processes
 exec swayidle -w \
          timeout 4800 'swaylock -f' \
          timeout 600 'swaymsg "output * dpms off"' \
             resume 'swaymsg "output * dpms on"'
 
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | \
-    wob -acenter -abottom -M64 --background-color=~~!A#bg a26! --bar-color=~~!A#main-accent a87! --border-color=~~!A#dark-gray a93! -W512 -H40
+#exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | \
+#    wob -acenter -abottom -M64 --background-color=~~!A#bg a26! --bar-color=~~!A#main-accent a87! --border-color=~~!A#dark-gray a93! -W512 -H40
 
 #exec gammastep
 exec playerctld daemon
@@ -25,10 +29,9 @@ exec playerctld daemon
 ## open programs
 bindsym $mod+Return exec kitty
 bindsym $mod+t exec firefox-wayland
-bindsym $mod+f exec kitty --class=launcher -e ~/config/scripts/sway-launcher-desktop.sh
-bindsym $mod+Shift+F1 exec pavucontrol
 bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 bindsym $mod+p exec grim - | wl-copy -t image/png
+bindsym $mod+f exec rofi -terminal 'kitty' -show combi -combi-modes 'drun,run,window,ssh' -modes combi
 
 ## manipulate services
 bindsym $mod+Shift+c reload
@@ -41,9 +44,7 @@ bindsym XF86AudioLowerVolume exec amixer sset Master 2%- | sed -En 's/.*\[([0-9]
 bindsym XF86AudioRaiseVolume exec amixer sset Master 2%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
 bindsym XF86AudioMute exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $SWAYSOCK.wob
 
-#    control room lights
-bindsym $mod+F12 exec /home/andrew/.cargo/bin/lifxctl 4 "Pit=toggle"
-#    control Spotify
+#    control audio
 bindsym $mod+F4 exec playerctl next
 bindsym $mod+F5 exec playerctl play-pause
 #    manually control monitors
@@ -184,7 +185,6 @@ bindsym $mod+e layout toggle split
 
 ### Appearance
 output * bg ~/config/background.png fill
-seat seat0 xcursor_theme Bibata-Modern-Ice 32
 title_align center
 default_border pixel
 default_floating_border normal
@@ -200,31 +200,6 @@ client.unfocused ~~!a#dark-gray! ~~!a#dark-gray! ~~!a#fg st-62 li-15! ~~!a#dark-
 ### Apps that open at startup
 exec kitty --class=term_scratchpad
 for_window [app_id="term_scratchpad"] floating enable, sticky enable, resize set 80 ppt 50 ppt, border pixel 8, move position center, move scratchpad
-
-exec flatpak run com.discordapp.Discord
-for_window [class="discord"] move window to workspace side-monitor
-for_window [class="discord"] mark --add "D"
-
-exec flatpak run im.riot.Riot
-for_window [class="Element"] move window to workspace side-monitor
-for_window [class="Element"] mark --add "T"
-
-exec spotify
-for_window [class="Spotify"] move window to workspace "side-monitor'"
-for_window [class="Spotify"] mark --add "S"
-
-exec evolution
-for_window [app_id="evolution"] move window to workspace side-monitor
-for_window [app_id="evolution"] mark --add "M"
-
-### Windows that float by default
-for_window [class="MATLAB*" title="Figure*"] floating enable
-for_window [app_id="zoom"] floating enable
-for_window [title="erg"] floating enable
-for_window [title="Magma.*"] floating enable
-
-# configure launcher terminal
-for_window [app_id="launcher"] floating enable, sticky enable, resize set 50 ppt 40 ppt, border pixel 8
 
 # prevent idle when apps are fullscreen
 for_window [title=".*"] inhibit_idle fullscreen
