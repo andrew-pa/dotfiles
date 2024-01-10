@@ -1,18 +1,25 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function()
-    use 'tpope/vim-surround'
-    use 'tpope/vim-repeat'
-    use 'rust-lang/rust.vim'
+require('lazy').setup({
+    'tpope/vim-surround',
+    'tpope/vim-repeat',
+    'rust-lang/rust.vim',
 
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
+    { 'numToStr/Comment.nvim', lazy = false },
 
     -- Language Server Protocol
-    use { 
+    { 
         'neovim/nvim-lspconfig',
         config = function()
             local lsp = require('lspconfig')
@@ -26,32 +33,29 @@ return require('packer').startup(function()
                     capabilities = caps
                 }
             end
-        end,
-        after = 'nvim-cmp'
-    }
-    use { 'L3MON4D3/LuaSnip' }
-    use {
+        end
+    },
+    'L3MON4D3/LuaSnip',
+    {
         'hrsh7th/nvim-cmp',
-        requires = {
-            'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path',
-            'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-calc', 'hrsh7th/cmp-emoji',
-            'hrsh7th/cmp-calc', 'amarakon/nvim-cmp-lua-latex-symbols',
-            'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-nvim-lsp-signature-help'
-        },
+        dependencies = { 'nvim-lspconfig' },
         config = require('cmp_config')
-    }
-    use {
+    },
+    'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path',
+    'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-calc', 'hrsh7th/cmp-emoji',
+    'hrsh7th/cmp-calc', 'amarakon/nvim-cmp-lua-latex-symbols',
+    'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-nvim-lsp-signature-help',
+    {
         'rmagatti/goto-preview',
         config = function()
             require('goto-preview').setup {
-                width = 80,
+                width = 90,
                 height = 25
             }
         end,
-        requires = 'neovim/nvim-lspconfig'
-    }
-    use { 'ray-x/lsp_signature.nvim' }
-    use {
+        dependencies = { 'neovim/nvim-lspconfig' }
+    },
+    {
         'simrat39/rust-tools.nvim',
         config = function()
             require('rust-tools').setup {
@@ -68,17 +72,16 @@ return require('packer').startup(function()
                 }
             }
         end,
-        after = 'nvim-lspconfig'
-    }
+        dependencies = 'nvim-lspconfig'
+    },
 
     -- Treesitter
-    use {
+    {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
+        build = ':TSUpdate',
         config = function()
             require('nvim-treesitter.configs').setup {
-                ensure_installed = 'all',
-                ignore_install =  { 'phpdoc' },
+                ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "rust", "go", "java", "javascript", "python", "css", "bash", "hcl", "make", "html", "json", "latex" },
                 highlight = { enable = true },
                 indent = { enabled = true },
                 incremental_selection = {
@@ -92,10 +95,11 @@ return require('packer').startup(function()
                 }
             }
         end
-    }
-    use {
+    },
+
+    {
         'nvim-treesitter/nvim-treesitter-refactor',
-        requires = {'nvim-treesitter/nvim-treesitter'},
+        dependencies = {'nvim-treesitter/nvim-treesitter'},
         config = function()
             require('nvim-treesitter.configs').setup {
                 refactor = {
@@ -109,19 +113,19 @@ return require('packer').startup(function()
                 }
             }
         end
-    }
-    use {
+    },
+    {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        requires = {'nvim-treesitter/nvim-treesitter'},
+        dependencies = {'nvim-treesitter/nvim-treesitter'},
         config = function()
             require('nvim-treesitter.configs').setup {
                 textobjects = require('treesitter_textobjects')
             }
         end
-    }
-    use {
+    },
+    {
         'drybalka/tree-climber.nvim',
-        requires = { 'nvim-treesitter/nvim-treesitter' },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = function()
             local keyopts = { noremap = true, silent = true }
             local tc = require('tree-climber')
@@ -132,59 +136,45 @@ return require('packer').startup(function()
             vim.keymap.set('n', '<C-j>H', tc.swap_prev, keyopts)
             vim.keymap.set('n', '<C-j>L', tc.swap_next, keyopts)
         end
-    }
-    use {
+    },
+    {
         'nvim-treesitter/nvim-treesitter-context',
-        requires = {'nvim-treesitter/nvim-treesitter'},
+        dependencies = {'nvim-treesitter/nvim-treesitter'},
         config = function()
             require('treesitter-context').setup { enable = true }
         end
-    }
+    },
 
     -- Telescope
-    use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use {
+    'nvim-lua/plenary.nvim',
+    'nvim-lua/popup.nvim',
+    {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        dependencies = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
         config = require('telescope_config').config
-    }
-    use { 'nvim-telescope/telescope-ui-select.nvim' }
-    use {
+    },
+    'nvim-telescope/telescope-ui-select.nvim',
+    {
         'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-    }
-
-    use {
-        'winston0410/mark-radar.nvim',
-        disable = true,
-        config = function()
-            require('mark-radar').setup {
-                highlight_group = "IncSearch"
-            }
-        end
-    }
-
-    use {
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    },
+    {
         'saecki/crates.nvim',
-        tag = 'v0.1.0',
-        requires = { 'nvim-lua/plenary.nvim' },
+        tag = 'stable',
+        event = { "BufRead Cargo.toml" },
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
             require('crates').setup()
         end
+    },
+    'benknoble/vim-sexp',
+    'junegunn/rainbow_parentheses.vim'
+}, {
+    performance = {
+        rtp = {
+            paths = {
+                '~/config/nvim'
+            }
+        }
     }
-
-<<<<<<< HEAD
-    -- Racket stuff
-    use { 'benknoble/vim-sexp' }
-    use { 'junegunn/rainbow_parentheses.vim' }
-=======
-    use { 'benknoble/vim-sexp' }
->>>>>>> d3c916e (macbook tweaks and changes)
-
-    -- use {
-    --     disable = true,
-    --     'mfussenegger/nvim-dap',
-    --     config = require('dap_config')
-    -- }
-end)
+})
