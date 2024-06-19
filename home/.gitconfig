@@ -11,3 +11,5 @@
 	directory = /mnt/w/Users/andre/Source/qrch
 [push]
 	autoSetupRemote = true
+[init]
+	defaultBranch = main

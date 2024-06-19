@@ -22,6 +22,8 @@ return function(client, bufnr)
     keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
     keymap('n', '<Leader>s', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', opts)
     keymap('n', '<Leader>c', '<cmd>Telescope lsp_document_symbols<CR>', opts)
+    keymap('n', '<Leader>y', '<cmd>Telescope lsp_incoming_calls<CR>', opts)
+    keymap('n', '<Leader>Y', '<cmd>Telescope lsp_outgoing_calls<CR>', opts)
     keymap('n', '<Leader>r', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     keymap('n', '<Leader>R', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
     keymap('n', '<Leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
@@ -35,11 +37,11 @@ return function(client, bufnr)
         keymap('n', '<Leader>T', '<C-w>v<C-w>l<cmd>ClangdSwitchSourceHeader<CR>', opts)
     end
 
-    require('lsp_signature').on_attach({
-        hint_enable = false,
-        extra_trigger_chars = {"{"},
-        toggle_key = '<C-q>',
-        select_signature_key = '<C-e>',
-        close_timeout = 500
-    }, bufnr)
+    -- require('lsp_signature').on_attach({
+        -- hint_enable = false,
+        -- extra_trigger_chars = {"{"},
+        -- toggle_key = '<C-q>',
+        -- select_signature_key = '<C-e>',
+        -- close_timeout = 500
+    -- }, bufnr)
 end

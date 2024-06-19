@@ -28,7 +28,7 @@ exec playerctld daemon
 ### Key bindings
 ## open programs
 bindsym $mod+Return exec kitty
-bindsym $mod+t exec firefox-wayland
+bindsym $mod+t exec firefox
 bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 bindsym $mod+p exec grim - | wl-copy -t image/png
 bindsym $mod+f exec rofi -terminal 'kitty' -show combi -combi-modes 'drun,run,window,ssh' -modes combi
@@ -194,12 +194,12 @@ gaps outer 4
 smart_gaps on
 smart_borders on
 client.focused ~~!a#main-accent! ~~!a#main-accent! ~~!a#bg! ~~!a#main-accent li-20 st+5!
-client.focused_inactive ~~!a#dark-gray! ~~!a#med-gray! ~~!a#fg st-62! ~~!a#dark-gray li+20 st+5!
+client.focused_inactive ~~!a#border! ~~!a#med-gray! ~~!a#fg st-62! ~~!a#dark-gray li+20 st+5!
 client.unfocused ~~!a#dark-gray! ~~!a#dark-gray! ~~!a#fg st-62 li-15! ~~!a#dark-gray li+20 st+5!
 
 ### Apps that open at startup
 exec kitty --class=term_scratchpad
-for_window [app_id="term_scratchpad"] floating enable, sticky enable, resize set 80 ppt 50 ppt, border pixel 8, move position center, move scratchpad
+for_window [app_id="term_scratchpad"] floating enable, sticky enable, resize set 66 ppt 66 ppt, border pixel 8, move position center, move scratchpad
 
 # prevent idle when apps are fullscreen
 for_window [title=".*"] inhibit_idle fullscreen
@@ -209,4 +209,5 @@ bar {
     swaybar_command waybar
     mode hide
 }
+
 include /etc/sway/config.d/*

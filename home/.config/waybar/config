@@ -1,11 +1,11 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "margin-left": 196,
-    "margin-right": 196,
-    "margin-top": 5,
+    "margin-left": 100,
+    "margin-right": 100,
+    "margin-top": 8,
     "margin-bottom": 0,
-    "height": 30,
+    "height": 32,
     "mode": "hide",
     "modifier-reset": "press",
     "ipc": true,
@@ -13,7 +13,7 @@
     "exclusive": false,
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["sway/workspaces", "sway/mode", "mpris"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "clock", "tray"],
     // Modules configuration
@@ -56,10 +56,10 @@
         "tooltip-format": "{app}: {title}"
     },
     "mpris": {
-        "format": "{status_icon} {player}: {dynamic} ",
+        "format": "{status_icon} {player}: {dynamic}",
         "status-icons": {
-            "playing": "",
-            "paused": "",
+            "paused": "",
+            "playing": "",
             "stopped": "■"
         }
     },
@@ -93,7 +93,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-wifi": "{ipaddr}/{cidr} : {essid} ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",

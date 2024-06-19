@@ -10,6 +10,6 @@ else
     if [ "$(tmux display-message -p -F "#{session_name}")" = "popup" ];then
         tmux detach-client
     else
-        tmux popup -E -w "85%" -h "85%" -b rounded "$SELFPATH init-popup $(tmux display-message -p -F "#{window_name}")"
+        tmux popup -E -w "85%" -h "85%" -b rounded "$SELFPATH init-popup $(tmux display-message -p -F "#{pane_current_path}")"
     fi
 fi

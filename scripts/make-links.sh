@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COLORSCHEME=spring2024.palette
+COLORSCHEME=april2024.palette
 CONFIG_ROOT=$HOME/config
 
 unipalette $CONFIG_ROOT/palettes/$COLORSCHEME expand $CONFIG_ROOT

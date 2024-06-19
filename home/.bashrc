@@ -9,7 +9,7 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
-export PATH="$HOME/.cargo/bin:$DENO_INSTALL/bin:$WASMTIME_HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$DENO_INSTALL/bin:$HOME/source/tools/scripts/:$PATH"
 export PS1="\n\[\e]0;sh [\w]\a\][\[\e[32m\]\u\[\e[m\]@\[\e[31m\]\h\[\e[m\]] \[\e[35m\\w\[\e[m\n\\$ "
 export HISTSIZE=90000
 export HISTFILESIZE=90000
@@ -33,9 +33,13 @@ else
 fi
 alias vim='nvim'
 alias wndmn='kitty --detach nodemon'
+alias less='less -R'
+alias docker=podman
+
 alias gitlog='git log --oneline -n20'
 alias gitlogg='git log --oneline --graph'
-alias less='less -R'
+alias gtw='git worktree'
+alias gitst='git status'
 
 mkdir -p /tmp/logs/
 function plog() {
@@ -45,7 +49,7 @@ function plog() {
 }
 
 #alias wvim='kitty --detach nvim'
-function wvim() { command neovide $*; }
+function wvim() { command neovide --fork $*; }
 
 [ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
 

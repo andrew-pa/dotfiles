@@ -9,7 +9,9 @@ end
 M.config = function()
     local actions = require('telescope.actions')
 
-    require('telescope').setup {
+    local telescope = require('telescope')
+
+    telescope.setup {
         defaults = {
             mappings = {
                 i = {
@@ -18,11 +20,21 @@ M.config = function()
                     [ "<C-k>" ] = actions.move_selection_worse,
                 }
             }
+        },
+        extensions = {
+            ast_grep = {
+                command = {
+                    "ast-grep", "run", "--json=stream"
+                },
+                grep_open_files = false,
+                lang = nil
+            }
         }
     }
 
-    require('telescope').load_extension('ui-select')
-    require('telescope').load_extension('fzf')
+    telescope.load_extension('ui-select')
+    telescope.load_extension('fzf')
+    telescope.load_extension('ast_grep')
 
     local opts = { noremap = true, silent = true }
     vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua require("telescope_config").project_files()<cr>', opts)
@@ -32,6 +44,7 @@ M.config = function()
     vim.api.nvim_set_keymap('n', '<leader>D', '<cmd>Telescope diagnostics<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>m', '<cmd>Telescope marks<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>G', '<cmd>Telescope git_status<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>Telescope ast_grep<cr>', opts)
 end
 
 return M

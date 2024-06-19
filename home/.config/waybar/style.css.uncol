@@ -1,5 +1,5 @@
 * {
-    font-family: Inconsolata;
+    font-family: sans;
     font-size: 16px;
 }
 
@@ -7,7 +7,7 @@ window#waybar {
     background-color: ~~!$bg!;
     border: 2px solid ~~!$dark-gray!;
     color: ~~!$fg!;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 #workspaces {
@@ -43,7 +43,11 @@ window#waybar {
 }
 
 .modules-right * {
-    margin-left: 0.5em;
+    margin-left: 0.7em;
+}
+
+.modules-left #mpris {
+    margin-left: 1.0em;
 }
 
 .modules-center image {

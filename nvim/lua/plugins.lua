@@ -15,8 +15,9 @@ require('lazy').setup({
     'tpope/vim-surround',
     'tpope/vim-repeat',
     'rust-lang/rust.vim',
+    'junegunn/goyo.vim',
 
-    { 'numToStr/Comment.nvim', lazy = false },
+    { 'numToStr/Comment.nvim', lazy = false, opts = {} },
 
     -- Language Server Protocol
     { 
@@ -144,20 +145,50 @@ require('lazy').setup({
             require('treesitter-context').setup { enable = true }
         end
     },
+    {
+        'cshuaimin/ssr.nvim',
+        config = function()
+            require("ssr").setup {
+                border = "rounded",
+                min_width = 60,
+                min_height = 10,
+                max_width = 120,
+                max_height = 50,
+                adjust_window = true,
+                keymaps = {
+                    close = "q",
+                    next_match = "n",
+                    prev_match = "N",
+                    replace_confim = "<cr>",
+                    replace_all = "<leader><cr>"
+                }
+            }
+            local keyopts = { noremap = true, silent = true }
+            vim.keymap.set({"n","x"}, "<leader>a", function() require("ssr").open() end)
+        end
+    },
 
     -- Telescope
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
     {
         'nvim-telescope/telescope.nvim',
-        dependencies = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        dependencies = {
+            {'nvim-lua/popup.nvim'},
+            {'nvim-lua/plenary.nvim'},
+            {'nvim-telescope/telescope-ui-select.nvim'},
+            {'nvim-telescope/telescope-fzf-native.nvim'},
+            {'Marskey/telescope-sg'},
+        },
         config = require('telescope_config').config
     },
     'nvim-telescope/telescope-ui-select.nvim',
+    'Marskey/telescope-sg',
     {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     },
+
     {
         'saecki/crates.nvim',
         tag = 'stable',

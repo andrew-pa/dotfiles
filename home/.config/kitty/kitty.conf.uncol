@@ -1,9 +1,13 @@
-font_family Inconsolata
-font_size 12.0
+font_family Fira Code
+font_size 10.5
+disable_ligatures never
 linux_display_server wayland
 macos_option_as_alt yes
 dynamic_background_opacity yes
+
 enable_audio_bell no
+command_on_bell 'notify-send "🔔 $KITTY_CHILD_CMDLINE"'
+
 scrollback_lines -1
 
 map ctrl+enter launch --cwd=current --type=os-window --copy-env
@@ -75,7 +79,8 @@ map alt+9 goto_tab 9
 
 tab_bar_style separator
 tab_separator " "
-tab_title_template " {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}{sup.index}"
+tab_title_template " {sup.index}{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}"
+tab_title_max_length 32
 active_tab_foreground   ~~!#fg *0.3* main-accent!
 active_tab_background   ~~!#dark-gray!
 active_tab_font_style   bold

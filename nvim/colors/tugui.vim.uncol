@@ -49,14 +49,17 @@ hi DiffText            guifg=~~!#$black!     guibg=~~!#yellow li+10 st+4!    gui
 hi DiagnosticHint      guifg=~~!#green li-8!
 hi DiagnosticInfo      guifg=~~!#fg li+10!
 hi User1               guifg=~~!#red!     guibg=~~!#bg!
-hi User2               guifg=~~!#blue!     guibg=~~!#bg!
+hi User2               guifg=~~!#blue li-20 st-5!     guibg=~~!#bg!
 hi User3               guifg=~~!#green!     guibg=~~!#bg!
 hi User4               guifg=~~!#yellow!     guibg=~~!#bg!
-hi User5               guifg=~~!#purple!     guibg=~~!#bg!
+hi User5               guifg=~~!#purple *0.2* red!     guibg=~~!#bg!
 hi User6               guifg=~~!#cyan!     guibg=~~!#bg!
 hi User7               guifg=~~!#white!     guibg=~~!#bg!
 hi User8               guifg=~~!#$black li+38!     guibg=~~!#bg!
 hi User9               guifg=~~!#white li+10 st+4!    guibg=~~!#purple!
+hi FloatBorder         guifg=~~!#border!     guibg=~~!#bg!
+hi TelescopeBorder     guifg=~~!#border!     guibg=~~!#bg!
+hi TelescopeTitle      guifg=~~!#white!      guibg=~~!#bg!
 hi! link CursorColumn  CursorLine
 hi! link SignColumn    LineNr
 hi! link WildMenu      Visual
@@ -76,7 +79,7 @@ highlight! CmpItemAbbrMatch guibg=NONE guifg=~~!#light-gray!
 highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=~~!#yellow!
 
 highlight! CmpItemKindVariable guibg=NONE guifg=~~!#med-gray!
-highlight! CmpItemKindInterface guibg=NONE guifg=~~!#blue!
+highlight! CmpItemKindInterface guibg=NONE guifg=~~!#blue li+15!
 highlight! CmpItemKindText guibg=NONE guifg=~~!#med-gray!
 
 highlight! CmpItemKindFunction guibg=NONE guifg=~~!#purple!
@@ -96,7 +99,7 @@ hi String          guifg=~~!#yellow!
 hi Keyword         guifg=~~!#green!
 hi Todo            guifg=~~!#white li+10 st+4! guibg=~~!#bg li+5!  ctermbg=NONE     gui=bold,underline
 hi Function        guifg=~~!#purple *0.5* blue!
-hi Identifier      guifg=~~!#purple!   gui=none
+hi Identifier      guifg=~~!#purple li+20 *0.1* red!   gui=none
 hi Statement       guifg=~~!#green!   gui=bold
 hi Constant        guifg=~~!#purple li+10 st+4!
 hi Number          guifg=~~!#(red *0.5* yellow) li+8 st+8!
@@ -268,7 +271,7 @@ hi! link bladeEchoDelim  PreProc
 
 "}}}
 
-hi rustModPath            guifg=~~!#blue!
+hi rustModPath            guifg=~~!#blue *0.2* yellow!
 hi Macro                  guifg=~~!#green!
 hi plaintexControlSequence guifg=~~!#purple li+10 st+4!
 hi initexJobCommand guifg=~~!#purple li+10 st+4!

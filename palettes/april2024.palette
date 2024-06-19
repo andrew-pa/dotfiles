@@ -1,0 +1,21 @@
+# April 2024 colors
+
+white=l100c0h300
+red=l60c100h35
+green=l60c100h150
+yellow=red *0.4* green
+blue=l50c100h250
+purple=red *0.6* blue
+cyan=blue *0.6* green
+
+bg=l0c5h300
+fg=~bg li=150 ch15
+
+main-accent=l50c80h300
+dark-gray=bg li+12 ch8
+med-gray=bg li+32 ch10
+light-gray=bg li+52 ch12
+
+highlight=fg li=10 st+5
+
+border=(~main-accent *0.2* yellow) li-20

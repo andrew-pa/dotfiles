@@ -21,7 +21,7 @@ augroup vimrc-incsearch-highlight
 augroup END
 
 set list
-set listchars=tab:––→,trail:~,extends:>,precedes:<,space:·
+set listchars=tab:-->,trail:~,extends:>,precedes:<,space:·
 
 set statusline=%<%f\ %q%h%m%r\ \ %*%=%-26.(%y\ ln\ %l\ col\ %v%)\ %P
 set titlestring=vim\ [%F\ %P]
@@ -34,7 +34,7 @@ au FileType lisp,scheme,racket RainbowParentheses
 
 colorscheme tugui
 
-set guifont=Inconsolata:h13
+set guifont=Fira\ Code:h11
 
 let g:neovide_cursor_animation_length=0.02
 let g:neovide_cursor_animate_command_line=0
