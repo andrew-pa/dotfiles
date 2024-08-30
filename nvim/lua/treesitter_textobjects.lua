@@ -9,6 +9,7 @@ return {
             [']P'] = '@parameter.outer',
             [']s'] = '@statement.outer',
             [']b'] = '@block.outer',
+            [']c'] = '@call.outer',
         },
         goto_previous_start = {
             ['[m'] = '@function.outer',
@@ -16,6 +17,7 @@ return {
             ['[p'] = '@parameter.outer',
             ['[s'] = '@statement.outer',
             ['[b'] = '@block.outer',
+            ['[c'] = '@call.outer',
         },
         goto_next_end = {
             [']M'] = '@function.outer',
@@ -23,6 +25,7 @@ return {
             [']p'] = '@parameter.outer',
             [']S'] = '@statement.outer',
             [']B'] = '@block.outer',
+            [']C'] = '@call.outer',
         },
         goto_previous_end = {
             ['[M'] = '@function.outer',
@@ -30,6 +33,7 @@ return {
             ['[P'] = '@parameter.outer',
             ['[S'] = '@statement.outer',
             ['[B'] = '@block.outer',
+            ['[C'] = '@call.outer',
         },
     },
     select = {
@@ -38,13 +42,15 @@ return {
         keymaps = {
             ['ab'] = '@block.outer',
             ['af'] = '@function.outer',
-            ['ac'] = '@class.outer',
+            ['aC'] = '@class.outer',
             ['ap'] = '@parameter.outer',
             ['as'] = '@statement.outer',
+            ['ac'] = '@call.outer',
 
             ['ib'] = '@block.inner',
             ['if'] = '@function.inner',
-            ['ic'] = '@class.inner',
+            ['iC'] = '@class.inner',
+            ['ic'] = '@call.inner',
             ['ip'] = '@parameter.inner'
         }
     },
@@ -52,9 +58,11 @@ return {
         enable = true,
         swap_next = {
             ['sa'] = "@parameter.inner",
+            ['sc'] = "@call.outer",
         },
         swap_previous = {
             ['sA'] = "@parameter.inner",
+            ['sC'] = "@call.outer",
         }
     }
 }

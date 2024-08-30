@@ -38,6 +38,7 @@ M.config = function()
 
     local opts = { noremap = true, silent = true }
     vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua require("telescope_config").project_files()<cr>', opts)
+    vim.api.nvim_set_keymap('n', '<leader>F', '<cmd>Telescope find_files<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>Telescope live_grep<cr>', opts)
     vim.api.nvim_set_keymap('n', '<leader>S', '<cmd>Telescope treesitter<cr>', opts)

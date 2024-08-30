@@ -79,3 +79,5 @@ unset __conda_setup
 
 
 complete -C /usr/bin/terraform terraform
+
+[ -f "/home/andrew/.ghcup/env" ] && . "/home/andrew/.ghcup/env" # ghcup-env
