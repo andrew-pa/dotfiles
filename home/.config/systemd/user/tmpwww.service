@@ -1,0 +1,13 @@
+[Unit]
+Description=Serve /tmp/www over HTTP
+After=network.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/mkdir -p /tmp/www
+ExecStart=/usr/bin/python3 -m http.server 5999 --directory /tmp/www
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
