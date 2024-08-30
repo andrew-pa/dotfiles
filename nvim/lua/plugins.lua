@@ -199,7 +199,16 @@ require('lazy').setup({
         end
     },
     'benknoble/vim-sexp',
-    'junegunn/rainbow_parentheses.vim'
+    'junegunn/rainbow_parentheses.vim',
+
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true,
+        opts = {
+            enable_bracket_in_quote = false
+        }
+    }
 }, {
     performance = {
         rtp = {
