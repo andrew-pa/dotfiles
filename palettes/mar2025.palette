@@ -1,0 +1,21 @@
+# March 2025 colors
+
+white=l100c0h270
+red=l60c110h35
+green=l60c100h130
+yellow=(red *0.45* green) li+30
+blue=l50c90h280
+purple=red *0.6* blue
+cyan=(blue *0.6* green) li+20
+
+bg=l100c3h60
+fg=bg li=0 ch25
+
+main-accent=l60c100h80
+light-gray=bg li-22 ch8
+med-gray=bg li-36 ch10
+dark-gray=bg li-72 ch14
+
+highlight=fg li=100 st+5
+
+border=(main-accent *0.02* yellow) li-20
