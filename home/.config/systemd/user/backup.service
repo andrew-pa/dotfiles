@@ -1,6 +1,6 @@
 [Unit]
 Description=Automatically backup home directory to network store
-RequiresMountsFor=/mnt/jeff/
+RequiresMountsFor=/mnt/d/
 
 [Service]
 Type=oneshot

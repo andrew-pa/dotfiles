@@ -2,7 +2,7 @@
 Description=Automatically backup home directory to network store
 
 [Timer]
-OnCalendar=*-*-1,15
+OnCalendar=*-*-15
 RandomizedDelaySec=3600
 
 [Install]
