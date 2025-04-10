@@ -2,9 +2,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-export DENO_INSTALL="$HOME/.deno"
-export WASMTIME_HOME="$HOME/.wasmtime"
-
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -79,5 +76,10 @@ unset __conda_setup
 
 
 complete -C /usr/bin/terraform terraform
+
+eval "$(zellij setup --generate-completion bash)"
+eval "$(just --completions bash)"
+
+. $HOME/config/api-keys.env
 
 [ -f "/home/andrew/.ghcup/env" ] && . "/home/andrew/.ghcup/env" # ghcup-env

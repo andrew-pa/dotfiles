@@ -46,7 +46,7 @@
         "icon": true
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": "<span style=\"italic\">{0}</span>"
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
@@ -80,7 +80,7 @@
         "tooltip": true
     },
     "memory": {
-        "format": "{used}GiB {}% ",
+        "format": "{used}GiB {0}% ",
         "tooltip-format": "Available: {avail}GiB, Swap: {swapTotal}GiB"
     },
     "temperature": {

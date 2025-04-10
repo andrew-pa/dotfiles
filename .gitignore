@@ -8,3 +8,4 @@ home/.config/i3status-rust/theme.toml
 home/.config/waybar/style.css
 home/.config/dunst/dunstrc
 nvim/colors/tugui.vim
+api-keys.env

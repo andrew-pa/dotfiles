@@ -1,9 +1,11 @@
 #!/bin/bash
 
-COLORSCHEME=april2024.palette
 CONFIG_ROOT=$HOME/config
+COLORSCHEME=$CONFIG_ROOT/palettes/$1
 
-unipalette $CONFIG_ROOT/palettes/$COLORSCHEME expand $CONFIG_ROOT
+echo "Using colorscheme $COLORSCHEME"
+
+unipalette $COLORSCHEME expand $CONFIG_ROOT
 
 find $CONFIG_ROOT/home -type f -not -name "*.uncol" \
 	| sed "s|$CONFIG_ROOT/home\(.*\)|$CONFIG_ROOT/home\1 $HOME\1|g" \

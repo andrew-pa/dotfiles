@@ -24,7 +24,7 @@ require('lazy').setup({
         'neovim/nvim-lspconfig',
         config = function()
             local lsp = require('lspconfig')
-            local servers = { "rust_analyzer", "clangd", "texlab", "tsserver", "ocamllsp", "erlangls", "gopls", "hls", "pyright", "racket_langserver" }
+            local servers = { "rust_analyzer", "clangd", "texlab", "ts_ls", "ocamllsp", "erlangls", "gopls", "hls", "pyright", "racket_langserver" }
             local on_attach = require('lsp_attach')
             local caps = vim.lsp.protocol.make_client_capabilities()
             caps = require('cmp_nvim_lsp').default_capabilities(caps)
@@ -48,31 +48,29 @@ require('lazy').setup({
     'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-nvim-lsp-signature-help',
     {
         'rmagatti/goto-preview',
-        config = function()
-            require('goto-preview').setup {
-                width = 90,
-                height = 25
-            }
-        end,
+        opts = {
+            width = 90,
+            height = 30
+        },
         dependencies = { 'neovim/nvim-lspconfig' }
     },
     {
         'simrat39/rust-tools.nvim',
-        config = function()
-            require('rust-tools').setup {
-                tools = {
-                    autoSetHints = true,
-                    inlay_hints = {
-                        show_parameter_hints = true,
-                        parameter_hints_prefix = "",
-                        other_hints_prefix = ":",
-                    }
-                },
-                server = {
-                    on_attach = require('lsp_attach')
+        lazy = true,
+        ft = 'rust',
+        opts = {
+            tools = {
+                autoSetHints = true,
+                inlay_hints = {
+                    show_parameter_hints = true,
+                    parameter_hints_prefix = "",
+                    other_hints_prefix = ":",
                 }
+            },
+            server = {
+                on_attach = require('lsp_attach')
             }
-        end,
+        },
         dependencies = 'nvim-lspconfig'
     },
 
@@ -82,7 +80,7 @@ require('lazy').setup({
         build = ':TSUpdate',
         config = function()
             require('nvim-treesitter.configs').setup {
-                ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "rust", "go", "java", "javascript", "python", "css", "bash", "hcl", "make", "html", "json", "latex" },
+                ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "rust", "go", "java", "javascript", "python", "css", "bash", "hcl", "make", "html", "json", "latex", "just" },
                 highlight = { enable = true },
                 indent = { enabled = true },
                 incremental_selection = {
@@ -118,7 +116,7 @@ require('lazy').setup({
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
         dependencies = {'nvim-treesitter/nvim-treesitter'},
-        config = function()
+        config = function() 
             require('nvim-treesitter.configs').setup {
                 textobjects = require('treesitter_textobjects')
             }
@@ -142,7 +140,12 @@ require('lazy').setup({
         'nvim-treesitter/nvim-treesitter-context',
         dependencies = {'nvim-treesitter/nvim-treesitter'},
         config = function()
-            require('treesitter-context').setup { enable = true }
+            require('treesitter-context').setup {
+                enable = true,
+                max_lines = 8,
+                min_window_height = 32,
+                multiline_threshold = 3
+            }
         end
     },
     {
@@ -165,6 +168,26 @@ require('lazy').setup({
             }
             local keyopts = { noremap = true, silent = true }
             vim.keymap.set({"n","x"}, "<leader>a", function() require("ssr").open() end)
+        end
+    },
+    {
+        'kevinhwang91/nvim-ufo',
+        dependencies = { 'kevinhwang91/promise-async' },
+        config = function()
+            require("ufo").setup {
+                provider_selector = function(bufnr, filetype, buftype)
+                    return {'treesitter', 'indent'}
+                end
+            }
+
+            vim.o.foldcolumn = '1' -- '0' is not bad
+            vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+            vim.o.foldlevelstart = 99
+            vim.o.foldenable = true
+
+            -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+            vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+            vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
         end
     },
 
@@ -207,6 +230,75 @@ require('lazy').setup({
         config = true,
         opts = {
             enable_bracket_in_quote = false
+        }
+    },
+
+    {
+        'mfussenegger/nvim-dap',
+        config = require('dap_config').config
+    },
+
+    {
+        "yetone/avante.nvim",
+        event = "VeryLazy",
+        lazy = true,
+        opts = {
+            provider = "ollama",
+            ollama = {
+                endpoint = "http://127.0.0.1:11434",
+                model = "llama3.3:70b"
+            }
+        },
+        build = "make",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "stevearc/dressing.nvim",
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            'echasnovski/mini.icons',
+            {
+                "HakonHarnes/img-clip.nvim",
+                event = "VeryLazy",
+                opts = {
+                    -- recommended settings
+                    default = {
+                        embed_image_as_base64 = false,
+                        prompt_for_file_name = false,
+                        drag_and_drop = {
+                            insert_mode = true,
+                        },
+                    },
+                },
+            },
+            {
+                'MeanderingProgrammer/render-markdown.nvim',
+                opts = {
+                    file_types = { "markdown", "Avante" },
+                    heading = {
+                        enabled = true,
+                        sign = false,
+                        icons = {},
+                        width = 'block',
+                        min_width = 80
+                    }
+                },
+                ft = { "markdown", "Avante" },
+            },
+        },
+    },
+
+    {
+        'Julian/lean.nvim',
+        event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+
+        dependencies = {
+            'neovim/nvim-lspconfig',
+            'nvim-lua/plenary.nvim',
+        },
+
+        opts = {
+            lsp = {},
+            mappings = true,
         }
     }
 }, {

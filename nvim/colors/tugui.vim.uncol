@@ -163,6 +163,12 @@ hi! link markdownCodeBlock          String
 hi markdownCode                     gui=bold
 hi markdownBold                     gui=bold
 hi markdownItalic                   gui=underline
+hi RenderMarkdownH1Bg               guibg=~~!#highlight li+14 st+8!
+hi RenderMarkdownH2Bg               guibg=~~!#highlight li+10 st+8!
+hi RenderMarkdownH3Bg               guibg=~~!#highlight li+07 st+8!
+hi RenderMarkdownH4Bg               guibg=~~!#highlight li+03 st+8!
+hi RenderMarkdownH5Bg               guibg=~~!#highlight li+00 st+8!
+hi RenderMarkdownH6Bg               guibg=~~!#highlight li-10 st+8!
 
 "}}}
 " Ruby {{{

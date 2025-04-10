@@ -1,6 +1,7 @@
 
 " keybindings
 let mapleader = "\<Space>"
+let maplocalleader = "\\"
 nnoremap <Left> :bprev<CR>
 nnoremap <Right> :bnext<CR>
 nnoremap <Up> :b#<CR>
